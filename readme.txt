@@ -1,1 +1,1 @@
-Changes present only in trial branch
+Important details will be added here.
