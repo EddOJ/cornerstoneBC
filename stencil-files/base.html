@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html class="no-js" lang="{{ locale_name }}">
+    <head>
+        <title>{{ head.title }}</title>
+        {{{ resourceHints }}}
+        {{{ head.meta_tags }}}
+        {{{ head.config }}}
+        {{#block "head"}} {{/block}}
+
+        <link href="{{ head.favicon }}" rel="shortcut icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+        
+        <style>
+        
+           @font-face {
+               font-family: "Hero";
+               src: url("{{cdn 'webdav:/hero/Hero-Regular.ttf'}}");
+               src: url("{{cdn 'webdav:/hero/Hero-Regular.eot'}}");  /* IE9 Compat Modes */
+               src: url("{{cdn 'webdav:/hero/Hero-Regular.eot?#iefix'}}"), /* IE6-IE8 */
+                   url("{{cdn 'webdav:/hero/Hero-Regular.woff2'}}"), /* Super Modern Browsers */
+                   url("{{cdn 'webdav:/hero/Hero-Regular.woff'}}"),  /* Pretty Modern Browsers */
+                   url("{{cdn 'webdav:/hero/Hero-Regular.svg#svgFontName'}}"); /* Legacy iOS */
+           }
+        
+            .body {
+                width: 100%; padding: 0px !important; margin: 0 auto !important;  max-width: 1366px;
+            }
+            
+            h2, h3, h4, h5, h6 {
+                font-family: "Hero" !important;
+            }
+            
+            .footer {
+                padding:80px 15px !important;
+                background-color: #17172c !important;
+                max-width: 1366px; margin: 0px auto;
+                font-family: "Quicksand", Sans-Serif;
+                
+            } /*   footer - rgb(166, 166, 166) !important, h5 - rgb(204, 204, 204),  rgb(117, 117, 117) !important */
+            
+            .footer-info-col {
+                color: white !important;
+            }
+            
+            .footer h5 {
+                color: white !important;
+                font-size: 17px;
+            }
+            
+            .powered-by, .footer, .footer p, .footer a {
+                color: white !important;
+                font-size: 16px !important;
+            }            
+            
+            .footer-info article {
+                 margin-right:3%;
+            }
+            
+            .notAtHome {
+                position: relative !important;
+            }
+
+        </style>
+
+        <script>
+            {{!-- Change document class from no-js to js so we can detect this in css --}}
+            document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+        </script>
+
+        {{> components/common/polyfill-script }}
+
+        {{!-- Load Lazysizes script ASAP so images will appear --}}
+        <script>
+            {{!-- Only load visible elements until the onload event fires, after which preload nearby elements. --}}
+            window.lazySizesConfig = window.lazySizesConfig || {};
+            window.lazySizesConfig.loadMode = 1;
+        </script>
+        <script async src="{{cdn 'assets/dist/theme-bundle.head_async.js'}}"></script>
+
+        {{ getFontsCollection }}
+        {{{stylesheet '/assets/css/theme.css'}}}
+
+        {{{head.scripts}}}
+
+        {{~inject 'showAdminBar' theme_settings.show-admin-bar}}
+        {{~inject 'genericError' (lang 'common.generic_error')}}
+        {{~inject 'maintenanceModeSettings' settings.maintenance}}
+        {{~inject 'adminBarLanguage' (langJson 'admin')}}
+        {{~inject 'urls' urls}}
+        {{~inject 'secureBaseUrl' settings.secure_base_url}}
+        {{~inject 'cartId' cart_id}}
+        {{~inject 'channelId' settings.channel_id}}
+        {{~inject 'template' template}}
+    </head>
+    <body>
+        <svg data-src="{{cdn 'img/icon-sprite.svg'}}" class="icons-svg-sprite"></svg>
+
+        {{> components/common/header }}
+        {{> components/common/body }}
+        {{> components/common/footer }}
+
+        <script>window.__webpack_public_path__ = "{{cdn 'assets/dist/'}}";</script>
+        <script src="{{cdn 'assets/dist/theme-bundle.main.js'}}"></script>
+        <script>
+            {{!-- Exported in app.js --}}
+            window.stencilBootstrap("{{page_type}}", {{jsContext}}).load();
+        </script>
+
+        {{{footer.scripts}}}
+
+<script type="text/javascript"> 
+
+//
+//  STICKY HEADER (IF AT HOME)
+//
+//window.onload = loadIt;
+function loadIt() {
+var atHome = document.getElementById("atHome");
+if(atHome == null) {document.getElementsByClassName("myHeader")[0].classList.add('notAtHome');}
+}
+loadIt();
+
+
+//
+//  DROP DOWN MENU TOGGLE
+//
+function dropIt() {
+    var openDropdown=document.getElementById("dropMenu");
+    openDropdown.classList.toggle('show');
+}
+
+//
+//  MODAL - COMMING SOON POPUP
+//
+function openModal() {
+
+  var modalContainer = document.getElementById("modalDisplay");
+  var modal = document.querySelector(".modalPops");
+  modalContainer.classList.add("show");
+  modalContainer.addEventListener("click", function(e){
+
+    if(e.target.id == 'modalDisplay' || e.target.id == 'closeIt') {
+      
+      //closes the modal when a user clilcks outise the modal content--in the modalContainer!
+      modalContainer.classList.remove("show");
+    }
+  });
+}
+
+//
+//   SCROLLABLE HEADER BELOW
+//
+window.onscroll = function() {myFunction()};
+var header = document.getElementById("myHeader");
+var sticky = header.offsetTop;
+
+//console.log(sticky, window.pageYOffset);
+//var heroScroll = document.getElementById("heroScroll");//12/18/2019 added jacky; hero effect
+
+function myFunction() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+    //heroScroll.classList.add("heroScroll");//12/18/2019 added jacky; hero effect
+    //document.getElementById("magic").style.marginTop = "700px"; //400px 
+
+  } else {
+    header.classList.remove("sticky");
+    //heroScroll.classList.remove("heroScroll");//12/18/2019 added jacky; hero effect
+    //document.getElementById("magic").style.marginTop = "0px";
+  }
+}
+</script>
+
+<!-- BEGIN ROBLY WIDGET CODE -->
+<script type='text/javascript'>
+  var _d_site = _d_site || 'd8198a11947829e5a4bc2367da4028a1';
+  (function(w, d, p, s, s2) {
+    w[p] = w[p] || function() { (w[p].q = w[p].q || []).push(arguments) };
+    s = d.createElement('script'); s.async = 1; s.src = '//s3.amazonaws.com/roblyimages/accounts/14428/forms/30235/signup_popup.js';
+    s2 = d.getElementsByTagName('script')[0]; s2.parentNode.insertBefore(s, s2);
+  })(window, document, 'Robly');
+</script>
+<!-- END ROBLY WIDGET CODE -->
+
+    </body>
+</html>

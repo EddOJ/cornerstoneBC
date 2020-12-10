@@ -1,0 +1,742 @@
+<a href="#main-content" class="skip-to-main-link">{{lang 'header.skip_to_main'}}</a>
+{{#if banners.top}}
+<div class="banners" data-banner-location="top">
+    {{#each (limit banners.top_metadata 1)}}
+    <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-banner-id="{{this.banner-name}}">
+        <div data-event-type="promotion-click">
+            {{{this.content}}}
+        </div>
+    </div>
+    {{/each}}
+</div>
+{{/if}}
+
+<style>
+    
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%; padding: 0px !important; margin: 0px !important;
+}
+
+/*body*/ p {
+    font-family: 'Quicksand', sans-serif !important;
+}
+
+a {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+/*a:visited {
+    color: black;
+}*/
+
+
+/*
+
+CSS Website Grid
+
+*/
+
+.grid {
+    position: relative;
+    margin: 0 auto;
+    max-width: 1366px;
+    width: 100%;
+}
+
+.row {
+    width: 100%;
+    margin-bottom: 25px;
+    display: flex;
+    flex-wrap: wrap; /*useful when fixed items should responsively move to the next line*/
+    
+}
+
+.col-1 {
+    width: 8.33%;
+}
+
+.col-2 {
+    width: 16.66%;
+}
+
+.col-3 {
+    width: 25%;
+}
+
+.col-4 {
+    width: 33.33%;
+}
+
+
+.col-5 {
+    width: 41.66%;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-7 {
+    width: 58.33%;
+}
+
+.col-8 {
+    width: 66.66%;
+}
+
+.col-9 {
+    width: 75%;
+}
+
+.col-10 {
+    width: 83.33%;
+}
+
+.col-11 {
+    width: 91.66%;
+}
+
+.col-12 {
+    width: 100%;
+}
+
+
+/*
+
+Website content
+
+
+
+p {padding: 10px; overflow: auto; }
+*/
+
+.hero {
+    flex-direction: column;
+    padding-bottom: 75px;
+}
+
+.heroScroll { /* 12/18/2019 added jacky; 1 previously */
+    z-index: 1000; 
+    max-width:1366px;
+    position: fixed;
+    top: -300px;
+    animation-name: midWay; /* calls amimation from keyframes below*/
+    animation-duration: 1.8s;
+}
+
+.myHeader {
+    z-index: 1001;
+    position: fixed;/** only for desktop view / changed for mobile   **/
+    max-width: 1366px;
+    max-height: 150px;
+    padding: 20px;
+    width: 100%;
+    margin: 0px;
+    /*justify-content: space-between;*/
+    background-color: transparent;
+}
+
+.myHeader .header-cols {max-height: 100px;} /* IMP: djust this with the actual height of the logo */
+
+/* Used in conjunction with js to make the header fixed once a user scrolls down*/
+.sticky {
+  position: fixed !important; /* added !important so that when a user is not on the home page and the js (located in the base.htnl) displays header as position:relative; , the sticky css will still be scrollable and fixed */
+  top: 0;
+  width: 100%;
+  background-color:rgba(255,255,255,0.9) !important;/* predetermine it here, and use it in the animaiton*/
+  animation-name: example; /* calls amimation from keyframes below*/
+  animation-duration: 1.8s;
+  max-height: 100px;
+}
+
+
+.sticky img {
+    width: 50px; height: 50px;
+} 
+
+.sticky .header-cols, .sticky .logo{ /* for the logog container -- to prevent from growing bigger than the 50x50 pic*/
+    max-height: 50px;
+}
+
+.sticky, .myHeader {
+    border-bottom: 1px transparent;
+}
+
+.logo {
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    max-height: 100px;
+}
+
+
+/* header animation
+
+https://www.youtube.com/watch?v=TfDK-KLq0Ks [css transform anumatio for transitioning html elements with animation as they scroll on them]
+https://www.w3schools.com/css/css3_animations.asp
+
+Safari 4.0 - 8.0 */
+@-webkit-keyframes example {
+  from {background-color: transparent; top:-100px;}
+  to {background-color:rgba(255,255,255,0.9) !important; top:0px;}
+}
+
+/* Standard syntax */
+@keyframes example {
+  from {background-color: transparent; top:-100px;}
+  to {background-color:rgba(255,255,255,0.9) !important; top:0px;}
+}
+
+/* hero animation  Safari 4.0 - 8.0 */
+@-webkit-keyframes midWay {
+  from {top:-400px;}
+  to {top:-300px;}
+}
+
+/* Standard syntax */
+@keyframes midWay {
+  from {top:-400px;}
+  to {top:-300px;}
+}
+
+/*.CSS for the drop down menu below */
+
+.navbar, .navbar-right { 
+    position: relative; top:35%; height: 32px;}
+
+.sticky .navbar, .sticky .navbar-right { top: 25%; }/* reposition nav when sticky header appears */
+
+.navbar-right a {float: right;}
+
+.navbar a {float: left;}
+
+.navbar a, .navbar-right a {
+  font-size: 14px !important;
+  text-align: center;
+  padding: 5px 11px;
+  text-decoration: none;
+}
+
+.drop {
+  float: left;
+  overflow: hidden;
+}
+
+.drop .dropbtn {
+  font-size: 14px;  
+  border: none;
+  outline: none;
+  padding: 5px 11px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .navbar-right a:hover, .dropdown:hover .dropbtn {
+  background-color: transparent;
+  color: black; /*added 01/16/2020*/
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f2f2f2;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 7px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover, .drop button:hover{ /* .drop button:hover added 11/21/2019*/
+  font-weight: bold;
+}   
+
+.dropdown-content a:hover { /* .dropdown-content a:hove modified 11/21/2019*/
+  font-weight: bold;
+  background-color: #f7f7f7;
+}
+
+.drop:hover .dropdown-content {
+  display: block;
+} /****/
+
+
+.dropdown--quickSearch.is-open {/*ATM HERE*/
+    top:57px !important;
+    padding:12px;
+}
+
+.navUser-item--cart .dropdown-menu.is-open { /*shoping cart items count box display*/
+    top:100% !important;
+}
+
+.navUser-section, .navUser-item--account {
+    display: flex;
+}
+
+.navUser {
+    transform:none; /*prevents bigcommerce defined css from misplacing the shoping cart when screen size below 801px*/
+}
+
+/*previewCartItem-price is used to center the price tag on the preview cart box*/
+.previewCartItem-price  {
+    padding-left: 30%;
+}
+
+.button {
+    /*padding: .85714rem 2rem !important;*/
+}
+
+          /*CSS FOR COMMING SOON MODAL BELOW */
+          #modalDisplay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1004;
+            width:100%;
+            height:100%;
+            background-color: rgba(0,0,0,0.6);
+            display: none;
+          }
+        
+          .modalPops {
+            z-index: 1005;
+            position: absolute;
+            float: left;/*removes current flow from element*/
+            /*attributes below should center modal content*/
+            left: 50%; 
+            top: 50%;
+            transform: translate(-50%, -50%);/*centers it for good*/
+            background-color:white;
+            width: 600px;
+            height: 450px;/*500px previously;*/
+            border-radius: 30px;
+            /*padding:20%;*/
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, .9);
+          }
+        
+          .modalContentRight {
+            white-space:no-wrap;
+            overflow: hidden !important;
+            /*opacity: .8;
+            background: linear-gradient(to right, #23074d, #cc5333);*/
+          }
+        
+          .modalContentLeft {
+            padding: 2.5% 5%;
+          }
+        
+          /**/.modalContentLeft h2 {
+            font-size: 34px;/*remove once consolidated*/ line-height: normal; letter-spacing: normal;
+            margin: 21px 0px;
+          }
+        
+          .modalContentLeft form {
+            background-color: white; display:flex; width: 100%; border-radius: 15px; border: 1px solid black; padding: 10px;
+          }
+        
+          .modalContentLeft form > input {
+            border:0px; width: 65%; /*70% prev*/color: #868686;
+          }
+        
+          .modalContentLeft form > button {
+            background-color: transparent; /*height:100%;*/ border:0px;  width: 35%;  /*30% prev */
+          }
+        
+          .modalContentLeft p {
+            margin: 21px 0px; padding-left:0px; color: #868686; line-height: 1.5em; letter-spacing: normal; font-size: 14px;
+          }
+        
+          .modalContentRight img {
+            position: relative;
+            border-radius: 0px 30px 30px 0px;
+            width: 100%;
+            /*height: 450px;HERE ATM*/
+            /*168
+            right: 30%;*/
+          }
+        
+          .shareIt {
+            float: left;
+          }
+          
+          .shareIt a {
+            text-decoration: none;; 
+          }
+        
+          .shareIt a > span {
+            padding-left:10px; 
+          }
+        
+          #closeIt {
+            z-index:1006; position:absolute; top:-15px; right:-15px; border-radius: 50%; width:35px; height: 35px;  color: white; background-color: black; font-size: 24px;/*27px prev*/ text-align: center; box-shadow: 5px 5px 15px rgba(0, 0, 0, .4);
+          }
+          /* END OF CSS FOR COMMING SOON MODAL */
+          
+
+/*   ------    MOBILE CSS    ------
+
+
+Useful for making websites responsive. We can a specific layout for desktops, tablets and phones */
+/* only keyword is useful for older browsers [remember] 
+   screen keywords tells browsrs that it applies to all devices [any screen]
+   max-width keyword means that the style within the brackets will apply so long as the screen is at <= 300px (will not apply if bigger).
+
+   767px for tablets
+   735px for mobile content resize 
+
+   logo mobile : 33px;
+   header mobile: 53px; 
+
+*/
+
+.hamburger {
+  padding:5px; 
+}
+
+.hamburger:hover {
+  background-color: #f2f2f2; 
+}
+
+.mobile-dev { /*to turn off mobile nav when screen size over 735px*/
+  display: none;
+}
+
+.show { /*.to show the drop down content from the button */
+  display: block !important;
+  transition: 2000ms ease-in-out, opacity 2500ms ease-in-out;
+}
+
+@media only screen and (max-width: 801px) {
+
+    .mobile-dev {
+      display: inline-block !important;
+    }
+
+    .dropdown-content {
+      top:39px;
+      width: 99vw !important;
+      margin: 0px 0px 0px -15px;
+      font-size: 21px;
+      padding: 21px;
+    }
+
+
+    .dropdown-content a {
+      padding: 11px 0px;
+      font-size: 15px;
+    }   
+
+    .navbar { /* , .navbar-right. some of navbar-rigth content will be visible--cart*/
+       display: none; 
+    }
+    
+    .drop:hover .dropdown-content {
+        display: none;
+    } /****/
+
+    .myHeader {
+        z-index: 1;
+        position: relative;/** only for desktop view / changed for mobile **/
+        height: 53px;
+        padding: 10px;
+        margin: 0px;
+        background-color:rgba(255,255,255,0.9);
+       /* box-shadow:1 ;
+        justify-content: space-between;*/
+    }
+
+    .sticky {
+        position: fixed !important;
+        animation-name: exampleMobile;
+    }
+
+    .sticky, .myHeader {
+        border-bottom: 1px solid #e8e8e8;
+    }
+
+    .myHeader .navbar, .myHeader .navbar-right, .sticky .navbar, .sticky .navbar-right { 
+        top: 10%; 
+    }/* reposition nav when sticky header appears */
+
+    .myHeader img, .sticky img {
+        width: 33px; height: 33px;
+    } 
+
+    .myHeader .header-cols, .myHeader .logo{ /* for the logog container -- to prevent from growing bigger than the 50x50 pic*/
+        height: 33px;
+    }
+
+    /*    Safari 4.0 - 8.0 */
+    @-webkit-keyframes exampleMobile {
+      from {background-color: transparent; top:-53px;}
+      to {background-color:rgba(255,255,255,0.9) !important; top:0px;}
+    }
+
+    /* Standard syntax */
+    @keyframes exampleMobile {
+      from {background-color: transparent; top:-53px;}
+      to {background-color:rgba(255,255,255,0.9) !important; top:0px;}
+    }
+    
+            .footer-info article {
+                 margin-right:0px;
+            }
+
+} 
+
+@media only screen and (max-width: 735px) {
+
+  .dropdown-content {
+      height: 900px;/*added 11/21/2019 */
+      overflow:auto; /*added 11/21/2019 */
+      -webkit-overflow-scrolling:touch; /*added 11/21/2019 */
+  } 
+  
+  /*Three selector lines below affect the styling of the preview cart small box feature located on the menu bar.   */
+  .previewCartItem-content {padding-right:0px !important;}
+  .previewCartAction-checkout, .previewCartAction-viewCart {
+      width: 100% !important; padding-left: 0px !important; padding-right: 0px !important;  float: none !important;
+  }
+  .previewCartItem-price  {
+      padding-left: 0.75rem;
+  }
+  
+                /*CSS FOR COMMING SOON MODAL BELOW */
+                .modalPops {
+                  width: 280px; /*300px prev*/
+                  height: 380px; /*420px previously*/
+                  background-image: url('https://eddoj.github.io/images/bottlesCBD-280x380.jpg');
+                }
+            
+                .modalContentLeft {
+                  height: 380px; /*420px previously*/
+                  background-color: rgba(230, 230, 230, .8);
+                  border-radius: 30px;
+                }   
+                  
+                /*remove it if not centered text on mobile moedal*/
+                .modalContentLeft h2 {
+                  font-size: 30px; /*remove once consolidated*/
+                  text-align: center;
+                }
+            
+                .modalContentLeft form {
+                  width: 95%;
+                } 
+            
+                /*remove txt:center; if not centered text on mobile moedal*/
+                .modalContentLeft p {
+                  color: #000; text-align: center;
+                }
+            
+                .modalContentRight {
+                  display: none;
+                }
+            
+                /*remove it if not centered text on mobile moedal*/
+                .shareIt {
+                  float: none; position: relative; left:27%;/* 30% prev*/
+                }
+                /*END OF CSS FOR COMMING SOON MODAL */
+ 
+}
+    
+</style>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+       <!-- <link rel="stylesheet" type="text/css" href="{{cdn 'scss/mypage.css'}}">
+            placehold.it to find display smaple images-->
+
+<header class="grid" role="banner">
+    <div class="row myHeader" id="myHeader">
+      <div class="col-5 header-cols">
+          
+          <nav class="navbar mobile-dev">  
+        <div class="drop">       
+              <i class="hamburger fa fa-bars fa-lg" onclick="dropIt();"></i><!--<i class="fa fa-bars" aria-hidden="true"></i>-->
+
+            <div id="dropMenu" class="dropdown-content">
+              <label><br/><strong>Shop:</strong>
+              <a href="https://adventstore.mybigcommerce.com/shop-all/">Products</a>
+              <a href="javascript:openModal()">Curated Experience</a>
+              <a href="https://adventstore.mybigcommerce.com/giftcertificates.php">Gift Cards</a>
+              </label>
+              <label><br/><strong>Learn:</strong>
+              <a href="https://adventstore.mybigcommerce.com/pages.php?pageid=5">Our Story</a>
+              <a href="https://adventstore.mybigcommerce.com/blog/">Vibes (Blog)</a>
+              <a href="https://adventstore.mybigcommerce.com/your-first-blog-post/">CBD 101: What's CBD?</a>
+              <a href="https://adventstore.mybigcommerce.com/contact-us/">Contact Us</a> 
+              </label>
+            </div>
+            
+          </div>
+        </nav>
+          
+        <nav class="navbar">
+          <!-- <a href="">Our Story</a>-->
+          <dv class="drop">
+            
+            <button class="dropbtn">Shop
+              <i class="fa fa-caret-down"></i>
+            </button>
+
+            <div class="dropdown-content">
+              <a href="https://adventstore.mybigcommerce.com/shop-all/">Products</a>
+              <a href="javascript:openModal()">Curated Experience</a>
+              <a href="https://adventstore.mybigcommerce.com/giftcertificates.php">Gift Cards</a>
+            </div>
+
+          </dv>
+          
+          <dv class="drop">
+            
+            <button class="dropbtn">Learn
+              <i class="fa fa-caret-down"></i>
+            </button>
+
+            <div class="dropdown-content">
+              <a href="https://adventstore.mybigcommerce.com/pages.php?pageid=5">Our Story</a>
+              <a href="https://adventstore.mybigcommerce.com/blog/">Vibes (Blog)</a>
+              <a href="https://adventstore.mybigcommerce.com/your-first-blog-post/">CBD 101: What's CBD?</a>
+              <a href="https://adventstore.mybigcommerce.com/contact-us/">Contact Us</a>
+            </div>
+
+          </dv>
+         <!--  <a href="">Editorial</a>
+          <a href="">Contact Us</a> -->
+          
+        </nav>
+        
+      </div>
+      
+      <!--logo container -->
+      <div class="col-2 logo">
+         <a href="https://adventstore.mybigcommerce.com/">
+             <img src="{{cdn 'webdav:/husltnflow.jpg'}}" style="max-height:100px;" alt="logo"></a> <!--https://via.placeholder.com/100 https://eddoj.github.io/images/logo.png end comment here --> 
+      </div>
+        
+        <!-- navUser is from bigcommerce. It's needed for proper styling of the cart, and also for it's js functions -->
+      <div class="col-5 header-cols">
+        <nav class="navbar-right navUser">    
+          
+          {{> components/common/currency-selector}}
+          
+          <ul class="navUser-section navUser-section--alt">
+            
+            {{#if customer.store_credit.value '>' 0}}
+            <li class="navUser-item">
+                <a class="navUser-action navUser-action--storeCredit"
+                   data-dropdown="storeCredit-dropdown"
+                   data-options="align:bottom"
+                   href="{{urls.cart}}">
+                        <span class="navUser-action-divider">{{lang 'common.store_credit_overview' credit=customer.store_credit.formatted}}</span>
+                </a>
+                <div class="dropdown-menu" id="storeCredit-dropdown" data-dropdown-content aria-hidden="true">
+                    {{{lang 'common.store_credit' store_credit=customer.store_credit.formatted}}}
+                </div>
+            </li>
+            {{/if}}
+        <li class="navUser-item">
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<a class="navUser-action navUser-action--quickSearch" href="#" data-search="quickSearch" aria-controls="quickSearch" aria-expanded="false">&ensp;<i class="fa fa-search" aria-hidden="true"></i></a>
+        </li>
+        {{#if settings.gift_certificates_enabled}}
+            <li class="navUser-item">
+                <a class="navUser-action" href="{{urls.gift_certificate.purchase}}">{{lang 'common.gift_cert'}}</a>
+            </li>
+        {{/if}}
+            <li class="navUser-item navUser-item--account">
+                    <a class="navUser-action" href="https://adventstore.mybigcommerce.com/account.php">&ensp; <i class="fa fa-user-o" ></i></a>
+                    <!-- https://adventstore.mybigcommerce.com/account.php {{urls.auth.login}}-->
+            </li>
+         
+        <li class="navUser-item navUser-item--cart">
+            <a class="navUser-action"
+               data-cart-preview
+               data-dropdown="cart-preview-dropdown"
+               data-options="align:right"
+               href="{{urls.cart}}"
+               aria-label="{{lang 'cart.nav_aria_label'}}"
+            >
+                <span class="navUser-item-cartLabel">&ensp;<i class="fa fa-shopping-cart a-lg" aria-hidden="true"></i><!-- {{lang 'common.cart'}} --></span>
+                <span class="countPill cart-quantity"></span>
+            </a>
+
+            <div class="dropdown-menu" id="cart-preview-dropdown" data-dropdown-content aria-hidden="true"></div>
+        </li>
+    </ul>
+    <div class="dropdown dropdown--quickSearch" id="quickSearch" aria-hidden="true" tabindex="-1" data-prevent-quick-search-close>
+        {{> components/common/quick-search name='nav-quick-search'}}
+    </div>
+        
+        </nav>
+      </div>
+
+    </div>
+</header>
+
+<!-- 
+<header class="header" role="banner">
+    <a href="#" class="mobileMenu-toggle" data-mobile-menu-toggle="menu">
+        <span class="mobileMenu-toggleIcon">Toggle menu</span>
+    </a>
+    {{> components/common/navigation}}
+
+    {{#if page_type '===' 'default'}}
+        <h1 class="header-logo header-logo--{{theme_settings.logo-position}}">
+            {{> components/common/store-logo}}
+        </h1>
+    {{else}}
+        <div class="header-logo header-logo--{{theme_settings.logo-position}}">
+            {{> components/common/store-logo}}
+        </div>
+    {{/if}}
+    <div class="navPages-container" id="menu" data-menu>
+        {{> components/common/navigation-menu}}
+    </div>
+</header> -->
+
+{{{region name="header_bottom--global"}}}
+{{{region name="header_bottom"}}}
+
+
+
+<div id="modalDisplay">
+      <div class="modalPops">
+          <div class="row margin-to-margin-section">
+            <span id="closeIt">X</span>
+            <div class="col-6 modalContentLeft">
+              <h2>Curated Experience is comming soon!</h2>
+    
+                    <form>
+                      <input type="text" placeholder="Enter Email Address" />
+                      <button>Subscribe</button>
+                    </form>
+    
+                    <p>
+                      Sign up now to get notified when Curated Experience goes live! The first 100 hustlers who subscribe will receive an exclusive gift from us.
+                    </p> 
+                <div class="shareIt"><a href="https://www.instagram.com/hustlenflowellness/?igshid=gwitme71naiz" target="_blank">Let's Connect! <span><i class="fa fa-camera-retro fa-1x"></i></span></a></div> 
+            </div>
+            <div class="col-6 modalContentRight">
+              <img src="https://eddoj.github.io/images/bottlesCBD-300x450.jpg"/>
+            </div>
+          </div>
+      </div>
+    </div>

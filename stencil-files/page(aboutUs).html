@@ -1,0 +1,538 @@
+{{#partial "page"}}
+
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+    <style>
+        
+                    /*                      imp                */            
+                    /* . Consolidate all css before deployment */
+                    /*                      imp                */  
+           /* * {
+                overflow-x: hidden; Needed to avoid hidden content from enabling right scrolling. Make sure to check that parent container has position relative and hidden child container has position absolute before enabling this selector. 
+            }*/
+            
+            /* only the next two selectors modify stencil theme padding for the original categoy page */
+
+            .container {
+                padding: 0px !important;
+                margin: 0px !important;
+                max-width: 1366px !important;
+            }
+            
+            .productsSectionPage, .footer .container {
+                padding: 0 1.5rem !important;
+            }
+            
+            
+            /*.momentarily: remove style css once everythimg merges */
+                        .hustlenflo_intro {
+                text-align:center; width:60%; margin:0px auto; padding-bottom:75px;/*50*/
+            } 
+            
+            .hustlenflo_intro p {
+                letter-spacing:1.7px; line-height:1.7em; font-size:16px; /* letter spacing was 1px */
+            }
+            
+            .margin-to-margin-section, .reg-section {
+                max-height:620px; margin:0px 0px 75px 0px; 
+            } 
+            
+            .shotNServices {
+                height: 620px;
+            }
+            
+            .leftPnSDiv:hover, .rightPnSDiv:hover {
+                opacity: 0.9;
+                background-color: #fafafa;
+            }
+            
+            .margin-to-margin-section {
+                position:relative;
+            }
+            
+            .margin-to-margin-section img {
+                width:100%; max-height:620px;
+            }
+            
+            .content-for-mtm-section, .reg-section-content {
+                display:flex; flex-direction:column; flex-wrap:wrap; justify-content:center; text-align:center;
+            }
+            
+            .content-for-mtm-section {
+                position:absolute; top: 15%;
+            }
+            
+            h1, h2 { font-size: 34px; }
+            
+            .hustlenflo_intro h1, .blogWrapper h2, .content-for-mtm-section h2, .reg-section-content h2 {
+                font-size:40px; 
+            } 
+            
+            .content-for-mtm-section h2, .reg-section-content h2 {
+                font-size:50px; font-weight:400px;  line-height:1.3em;
+            }/*font-family:serif !important;*/
+            
+            .content-for-mtm-section p, .reg-section-content p {
+                letter-spacing:1.7px; line-height:1.7em; font-size:16px;
+            }
+            
+            .content-for-mtm-section p > a > button, .reg-section-content p > a > button {
+                width:180px;  background-color:black; color:white; padding:8px 28px;
+            }
+
+            .content-for-mtm-section p > a > button:hover, .reg-section-content p > a > button:hover {
+                
+                background-color: transparent;/*rgb(98, 45, 57) opacity: 0.9;*/
+                font-weight: bold;
+                color:black;
+                border:2px solid black;
+                
+            }
+            
+            /*subscriber footer css*/
+            .removeBMargin {margin-bottom:0px;}
+
+            .subscribeFeatureRight img {
+                width:100%; height: 100%;
+            }
+
+            .subscribeFeatureLeft {
+                display:flex; flex-wrap:wrap; flex-direction:column; text-align: left; padding: 8px 6% ;
+            }
+
+            .subscribeFeatureLeft  p {
+                color: #5c5c5c; padding-bottom: 1px; font-size: 30px;
+            }
+
+            .subscribeFeatureLeft h3 {
+                font-size: 33px; padding-bottom: 12%; font-weight: bold;
+            }
+
+            .subLeftSectionUpper {
+                width: 100%; border-radius: 50px; border: 1px solid black; margin: 0px auto 50px auto; padding: 15px;
+                display:flex;
+            } 
+
+            .subLeftSectionUpper input {
+                margin:0px; width: 80%; border: 0px; 
+            }
+
+            .subLeftSectionUpper input > button {
+                margin:0px; width: 19%; border: 0px; background-color:transparent; padding: 5px; float: right;
+            }
+
+            .subLeftSectionLower {
+                display:flex; flex-wrap:wrap; width:100%;
+            }
+
+            .subSocialMedia {
+                display: flex; flex-wrap: nowrap;
+            }
+
+            .subHashTag {
+                font-size: 20px; text-align: right; padding: 10px 0px;
+            }
+            
+            /*media queries below*/
+            @media only screen and (max-width: 850px) {
+                
+                .subHashTag, .subSocialMedia {
+                    width:100%;
+                    text-align: left;
+                }
+            }
+        
+            @media only screen and (max-width: 785px) {
+                .hustlenflo_intro {
+                    padding-bottom:50px;
+                }
+                
+                .hero {
+                    padding-bottom:50px;
+                }
+            
+                .margin-to-margin-section img, .reg-section img {
+                    min-height:334px;
+                } 
+                
+                .content-for-mtm-section {
+                    top: 6%;
+                }
+                
+                .reg-section img {
+                    max-height: 334px !important;/* keep fixing the mobile image issue */
+                }
+                
+                .shotNServices {
+                    height: 430px;
+                }
+                
+                .hustlenflo_intro h1, .blogWrapper h2, .content-for-mtm-section h2, .reg-section-content h2 {
+                    font-size:40px; 
+                }         
+                            
+                    /*Subscriber footer*/
+                .subscribeFeatureLeft h3 {
+                    font-size: 30px; padding-bottom: 0px; margin-bottom: 32px;
+                }
+
+                .subscribeFeatureLeft  p {
+                    padding-bottom: 0px; margin-bottom: 0px;
+                }
+
+                .subLeftSectionUpper {
+                    margin: 0px auto 32px auto; padding: 10px;
+                } 
+
+                /* Products Category Page */
+                .normalizeIMG {
+                    padding: 0% 0% 5% 0% !important;
+                }
+
+                .productCategory, .howItWorks {
+                    padding: 5% 7.5% !important;
+                }
+                
+            }
+            
+            @media only screen and (max-width: 735px) {
+                
+                .hustlenflo_intro {
+                    width:75%;
+                }  
+
+                h1, h2, .content-for-mtm-section h2, .reg-section-content h2 {
+                    font-size:30px; 
+                } 
+                
+                h2 {
+                    font-weight:bold;
+                }
+                
+                h3 {
+                    font-size: 25px;
+                }
+  
+                .col-6 {
+                    width: 100%;
+                    padding-bottom: 20px;/* keep fixing the mobile image issue */
+                }   
+                
+                .shotNServices {
+                    min-height: 800px !important;
+                }
+                
+                /*Subscriber footer*/
+                .subscribeFeatureLeft {
+                    text-align: center;
+                }
+                
+                .subscribeFeatureLeft  p {
+                    padding-bottom: 0px; margin-bottom: 0px;
+                }  
+                
+                .subLeftSectionUpper {
+                    width: 70%;
+                } 
+
+                .subSocialMedia {
+                    justify-content: center;
+                }
+
+                .subHashTag {
+                    padding-top:0px !important;
+                    text-align: center;
+                }
+                
+                /* Products Category Page */
+                .shiftIMGPosition {
+
+                    flex-direction: column-reverse;
+                }
+                /*.shiftIMGPosition :nth-child(1) { order: 2; }
+                .shiftIMGPosition :nth-child(2) { order: 1; }*/
+
+                .half-div {
+                    height: 180px !important;
+                }
+
+            }  
+
+            /* Products Category Page */
+            .productCategory, .howItWorks {
+                text-align: left;
+                padding: 5% 7.5%;/*2% instead of 0 previusly */
+            }
+
+            .howItWorks {
+                position: relative;
+            }
+
+            /* CSS for green numbered step images to the left of the How It Works description */
+            .howItWorks div {
+                position: absolute; z-index:-1; top: 10%; left:-0%;
+            }
+
+            .howItWorks div > img {
+                width: 50%;
+            }
+            /* End of css for green numbered step images*/
+
+            .productCategory {
+                justify-content: flex-start;
+            }
+
+            .howItWorksTitle {
+                position: absolute;
+            }
+
+            .howItWorks, .productCategoryTitle, .howItWorksTitle {
+                justify-content: center;
+            }
+
+            .howItWorks > img {
+                /*ATM CONTINUE add styles for mobile */
+            }
+
+            .productCategoryTitle h1 {
+                font-size:34px; margin: 0px 0px 25px 0px; 
+                font-weight: 100; letter-spacing: 1.7px; 
+                padding:0px;
+            }
+
+            .howItWorksTitle h1 {
+                margin:50px 0px; text-align:center !important;
+            }
+
+            .productCategory p, .howItWorks p {
+                padding: 0px; margin:0px 0px 25px 0px;
+            }
+
+            .productCategory h3, .howItWorks h3 {
+                
+                font-weight: 100;
+                font-size: 34px;
+                margin: 0 0 24px 0;
+                line-height: 37px;
+            } 
+
+            .half-div {
+                background-color:#f6f5f2; height: 210px; margin: 0px; padding: 0px;
+            }
+
+            .normalizeIMG, .normalizeIMGCenter {
+                position: relative;
+                padding: 0; /* 2% 0 */
+
+            }
+
+            .normalizeIMG {
+                justify-content: flex-start;/* align-content: center;*/
+            }
+
+            .normalizeIMGCenter {
+                text-align: center;
+            }
+
+            .normalizeIMG img {
+                width: 100%;
+                max-height: 100vw;
+                /*padding-bottom: 50%;*/
+
+            }
+
+            .normalizeIMGCenter img {
+                width: 60%;
+            }
+        
+
+/*currently here */
+             /*.blogWrapper h1, .productCategoryTitle h2 { font-size: 34px; }*/
+             h1, h2 { font-size: 34px !important;}
+             p {
+                font-size: 16px;
+               /* letter-spacing: 1.7px;*/
+                line-height: 1.7em;
+                font-size: 16px;
+             }
+            /*From sUBSCRIPTION CSS line below, remove all repetitive styles when consolidating*/
+            .removeBMargin {margin-bottom:0px !important;}
+      
+            /* Blog Section / Home Page / Blog Page 12.18.2019*/
+                
+            .blogWrapper {
+                text-align: center; background-color: #fafafa;
+            }
+
+            .blogWrapper h1 {
+                padding-top: 45px !important; margin-top:0px; margin-bottom: 10px;
+            }
+
+            .categoryBlog {
+                background-color: transparent;
+                display: flex; flex-wrap: now-wrap; 
+                justify-content: space-around;
+                height: auto;
+                padding: 15px 0px;
+                margin: 0px;
+            }
+
+            .categoryBlog div {
+                max-width: 400px !important;
+                /*min-width: 250px;*/
+                width: 32%; 
+                margin: 10px 0px; 
+                /*min-height: 180px;*/
+                height: 26vw; /*370px*/
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: white;
+                margin: 20px auto;
+                box-shadow: 5px 5px 15px rgba(0, 0, 0, .3); /* 5px 5px 5px, 0.2 */
+            }
+
+            .categoryBlog a > img {
+                width:80%; height:25vw; 
+            }
+
+            .categoryBlog div:hover {
+                opacity: 0.9;
+                background-color: #FBFFFE;
+            }   
+
+            .blogsPanel {
+                display: flex;
+                flex-direction: column;
+
+            }
+
+            .blogsPanel div > p {
+               padding:20px 0px 20px 0px;
+               margin: 0px;
+                 
+            } 
+
+ 
+            .showPanelEffect { /*.blogsPanel a > div without anchor tag--relies on h3 for linkage*/
+                position:relative; width:80%; margin: 0px auto;
+                box-shadow: 5px 5px 5px rgba(0, 0, 0, .2); 
+            }
+            
+            .blogsPanel a > div { /* if anchor tag can be used, but remove the .showPanelEffect atop*/
+                position:relative; width:80%; margin: 0px auto;
+               /* box-shadow: 5px 5px 5px rgba(0, 0, 0, .2); */
+            }           
+
+            .blogsPanel img {
+                width:100%;
+                margin: 0px auto;
+                max-height: 300px; /*400px previously*/
+            }
+
+            .hoverBlogPanelEffect {
+                display: flex; flex-direction:column; justify-content: center; align-items: center; position:absolute; top:0px; background-color:#fafafa; opacity: 0.7; width: 100%; max-height: 300px; /*400px previously*/ height: 100vw; margin: 0px; padding: 0px; font-size:34px; color: green;
+            }
+
+            .showPanelEffect div {
+                visibility:hidden;
+            }
+
+            .showPanelEffect:hover div {
+                visibility:visible;
+            }
+
+            .blogPanelDescription {
+                position: relative; top:-20px; width:80%; margin:15px auto; padding: 20px; background-color: #fafafa; border:1px solid #cccccc; box-shadow: 5px 5px 5px rgba(0, 0, 0, .2);
+            }
+
+            .blogPanelDescription spam {
+                color: #868686;
+            }
+
+            .blogPanelDescription h3 {
+                line-height:2em; display: inline; font-size:16px; font-weight: 500;
+            }/*change font size when hero is applied*/
+
+            .blogPanelDescription h3 > a {
+                padding-bottom:5px; text-decoration: none; border-bottom: 2px solid green;
+            }
+
+            .blogPanelDescription div {
+                width:100%; text-align: right; font-weight: bold; padding: 0px 5% 0px 0px; font-style:italic;
+            }
+            
+            
+/* Page CSS -- for about us, meta blog, etc. */
+            /*Mosification css for about us page -- consolidate before deploymemt*/
+            .aboutUs, .shareIconsSM {
+                display: flex;
+                justify-content: center;
+            }
+
+            .aboutUs h1 {
+                font-size:34px;
+                font-weight: 100; letter-spacing: 1.7px; 
+                padding:0px;
+            }
+
+            .normalizeVideo {
+              justify-content: center;
+              padding: 5% 0%;
+            }
+            
+            .page {
+                padding: 0px;
+                margin: 0px;
+            }
+            .page-content {
+                max-width: 1366px;
+                width:95% !important;
+                padding:0px !important;
+            }
+            /* /End of Page CSS -- for about us, meta blog, etc. */
+        </style>
+
+<main class="page">
+    {{#unless theme_settings.hide_page_heading }}
+        <h1 class="page-heading">{{ page.title }}</h1>
+    {{/unless}}
+
+    {{#if page.sub_pages}}
+    <nav class="navBar navBar--sub">
+        <ul class="navBar-section account-navigation">
+        {{#each page.sub_pages}}
+            <li class="navBar-item"><a class="navBar-action" href="{{url}}">{{title}}</a></li>
+        {{/each}}
+        </ul>
+    </nav>
+    {{/if}}
+
+    {{{region name="page_builder_content"}}}
+
+    <div class="page-content page-content--centered">
+        {{#replace '%%Syndicate%%' page.content}}
+            {{> components/page/rss_feed}}
+        {{else}}
+            <p>{{{page.content}}}</p>
+            <div class="row shareIconsSM">
+                {{>components/common/share}}
+            </div>
+        {{/replace}}
+    </div>
+
+    {{#if page.feed}}
+        <ul>
+            {{#each page.feed}}
+                <li>
+                    <h6><a href="{{url}}" target="_blank">{{title}}</a></h6>
+                    <p>{{content}}</p>
+                </li>
+            {{/each}}
+        </ul>
+    {{/if}}
+</main>
+
+{{/partial}}
+
+{{> layout/base}}

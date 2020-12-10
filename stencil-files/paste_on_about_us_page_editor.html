@@ -1,0 +1,56 @@
+Note: Paste the html code within the if statemtnes (from div to /div) only. The if statemnts are samples on how to display other content on the page.html in case content does not work properly on the BC WYSWYG html editor.
+
+
+    {{#if page.title '==' 'hustle n flo - Our Story'}}
+        
+        <style>
+        
+            .page {
+                padding: 0px;
+                margin: 0px;
+            }
+            .page-content {
+                max-width: 1366px;
+                width:95% !important;
+                padding:0px !important;
+            }
+        </style>
+
+        <div class="row removeBMargin" >
+    
+            <div  class="col-6 normalizeIMG">
+              <img src="https://eddoj.github.io/images/sample_email_sub_img.jpg" alt="Placeholder img"/>
+            </div>
+    
+            <div  class="col-6 productCategory reg-section-content">
+                    <h3>hustle + flo</h3>
+                    <p>
+                        As a lifestyle wellness brand, we respect the hustle — but sometimes our society takes it too far. When we get overworked, completely exhausted, and filled with anxiety, it adds stress to our lives and hinders our ability to do our best work. Jamie seeks to ensure that we improve our hustle by finding our flow in peaceful states of aspiration, exploration, discovery and creation. It’s a balance between the two that creates a productive, fulfilling life.
+
+                    </p>
+    
+            </div>
+            
+        </div>
+    
+      <div class="row removeBMargin shiftIMGPosition" >
+            <div  class="col-6 productCategory reg-section-content">
+                    <h3>A brand for urbanites</h3>
+                    <p>
+                       Jamie and her team are here to change the wellness industry by offering premium products and creating an online community hub that takes into account the vast emotional needs urban cultures experience.
+                    </p>
+            </div>
+            <div  class="col-6 normalizeVideo">
+              <video controls src="http://staticpages.mngbcn.com/homes/images/home/assets/mm/ss17/junio/video_rebajas_junio2017.mp4" width="100%"  ><!-- autoplay="autoplay" -->
+                    <source src="http://staticpages.mngbcn.com/homes/images/home/assets/mm/ss17/junio/video_rebajas_junio2017.mp4" type="video/mp4">
+                    <source src="http://staticpages.mngbcn.com/homes/images/home/assets/mm/ss17/junio/video_rebajas_junio2017.mp4" type="video/webm">
+                </video> 
+            </div>
+            
+        </div>
+        <div class="row shareIconsSM">
+            {{>components/common/share}}
+        </div>
+    {{else}}
+            <p>{{{page.content}}}</p>
+    {{/if}}

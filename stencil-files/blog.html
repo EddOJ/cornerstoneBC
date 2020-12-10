@@ -1,0 +1,461 @@
+---
+blog:
+    posts:
+        limit: 5
+        pages: 3
+        summary: 200
+---
+        <style>
+            /* just to style it--it is already on home.html, and later on the main css file*/
+            .container {
+                padding: 0px !important;
+            }
+            
+             /*.blogWrapper h1, .productCategoryTitle h2 { font-size: 34px; }*/
+             h1, h2 { font-size: 34px !important;}
+             p {
+                font-size: 16px;
+                letter-spacing: 1.7px;
+                line-height: 1.7em;
+                font-size: 16px;
+             } 
+            /*From sUBSCRIPTION CSS line below, remove all repetitive styles when consolidating*/
+            .removeBMargin {margin-bottom:0px !important;}
+      
+            /* Blog Section / Home Page / Blog Page 12.18.2019*/
+                
+            .blogWrapper {
+                text-align: center; background-color: #fafafa;
+            }
+
+            .blogWrapper h1 {
+                padding-top: 45px !important; margin-top:0px; margin-bottom: 10px;
+            }
+
+            .categoryBlog {
+                background-color: transparent;
+                display: flex; flex-wrap: now-wrap; 
+                justify-content: space-around;
+                height: auto;
+                padding: 15px 0px;
+                margin: 0px;
+            }
+
+            .categoryBlog div {
+                max-width: 400px !important;
+                /*min-width: 250px;*/
+                width: 32%; 
+                margin: 10px 0px; 
+                /*min-height: 180px;*/
+                height: 26vw; /*370px*/
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: white;
+                margin: 20px auto;
+                box-shadow: 5px 5px 15px rgba(0, 0, 0, .3); /* 5px 5px 5px, 0.2 */
+            }
+
+            .categoryBlog a > img {
+                width:80%; height:25vw; 
+            }
+
+            .categoryBlog div:hover {
+                opacity: 0.9;
+                background-color: #FBFFFE;
+            }   
+
+            .blogsPanel {
+                display: flex;
+                flex-direction: column;
+
+            }
+
+            .blogsPanel div > p {
+               padding:20px 0px 20px 0px;
+               margin: 0px;
+                 
+            } 
+
+            .showPanelEffect { /*.blogsPanel a > div without anchor tag--relies on h3 for linkage*/
+                position:relative; width:80%; margin: 0px auto;
+                box-shadow: 5px 5px 5px rgba(0, 0, 0, .2); 
+            }
+            
+            /* .blogsPanel a > div { //if anchor tag can be used, but remove the .showPanelEffect atop//
+                position:relative; width:80%; margin: 0px auto;
+                box-shadow: 5px 5px 5px rgba(0, 0, 0, .2); 
+            }    */ 
+
+            .blogsPanel img {
+                width:100%;
+                margin: 0px auto;
+                max-height: 300px; /*400px previously*/
+            }
+
+            .hoverBlogPanelEffect {
+                display: flex; flex-direction:column; justify-content: center; align-items: center; position:absolute; top:0px; background-color:#fafafa; opacity: 0.7; width: 100%; max-height: 300px; /*400px previously*/ height: 100vw; margin: 0px; padding: 0px; font-size:34px; color: green;
+            }
+
+            .showPanelEffect div {
+                visibility:hidden;
+            }
+
+            .showPanelEffect:hover div {
+                visibility:visible;
+            }
+
+            .blogPanelDescription {
+                position: relative; top:-20px; width:80%; margin:15px auto; padding: 20px; background-color: #fafafa; border:1px solid #cccccc; box-shadow: 5px 5px 5px rgba(0, 0, 0, .2);
+            }
+
+            .blogPanelDescription spam {
+                color: #868686;
+            }
+
+            .blogPanelDescription h3 {
+                line-height:2em; display: inline; font-size:16px; font-weight: 500;
+            }/*change font size when hero is applied*/
+
+            .blogPanelDescription h3 > a {
+                padding-bottom:5px; text-decoration: none; border-bottom: 2px solid green;
+            }
+
+            .blogPanelDescription div {
+                width:100%; text-align: right; font-weight: bold; padding: 0px 5% 0px 0px; font-style:italic;
+            }
+            
+            /* Remove when consolidating code */
+            @media only screen and (max-width: 785px) {
+
+                /* Blog Section / Home Page / Blog Page */
+                .categoryBlog div {
+                    width: 44% !important;
+                    height: 38vw !important;
+                }
+
+                .categoryBlog a > img {
+                    height: 37vw !important;
+                }
+                
+            }
+            
+            /* Remove when consolidating code */
+            @media only screen and (max-width: 735px) {
+                .col-6 {
+                    width: 100% !important;
+                    padding-bottom: 20px;/* keep fixing the mobile image issue */
+                }   
+            }
+            
+            
+            /*Added 02/03/2020 to play around and make blog content dynamic*/
+            .hide {
+                display: none;
+            }
+            
+            .show {
+                display: block;
+            }
+
+        </style>
+        
+{{#partial "page"}}
+
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+<div class="row margin-to-margin-section removeBMargin">
+        
+        <div class="col-12">
+            <img src="https://eddoj.github.io/images/product_page_sample.jpg" alt="Placeholder img"/>
+        </div>
+        
+    </div>
+
+    <div class="col-12 blogWrapper">
+        <h1 >Vibes</h1><!-- margin-top:0; margin-bottom:10px; before moving blog inside vibes div -->
+    <p>
+        
+        Blog description here ...  
+
+    </p>
+
+    <div class="row categoryBlog">
+      <div><a href="https://storetest.mybigcommerce.com/pages.php?pageid=6"><img src="https://eddoj.github.io/images/meta-vibes.png" alt="Blog Image Category 1"/></a></div>
+      <div><a href="#pageTitle"><img src="https://eddoj.github.io/images/electric-vibes.png" alt="Blog Image Category 1"/></a></div>
+      <div><a href="#pageTitle"><img src="https://eddoj.github.io/images/chill-vibes.png" alt="Blog Image Category 1"/></a></div>
+      <div><a href="#pageTitle"><img src="https://eddoj.github.io/images/hustle-vibes.png" alt="Blog Image Category 1"/></a></div>
+      <div><a href="#pageTitle"><img src="https://eddoj.github.io/images/pooch-vibes.png" alt="Blog Image Category 1"/></a></div>
+      <div><a href="#pageTitle"><img src="https://eddoj.github.io/images/all-the-vibes.png" alt="Blog Image Category 1"/></a></div>
+    </div>
+
+    </div>
+
+    <div id="pageTitle" class="row productCategoryTitle">
+        <div style="width:100%; text-align:center;">
+            <h2 >Latest Blogs</h2>
+        </div>
+    </div>
+    
+    <div id="vibesArticles" class="show">
+        
+        <div class="row" >
+    
+            <div  class="col-6 blogsPanel">
+    
+                <div class="showPanelEffect"><a href="https://storetest.mybigcommerce.com/your-first-blog-post/">
+    
+                    <img src="https://eddoj.github.io/images/product_in_category_sample.jpg" title="hustle n flo tinctures" alt="hustle n flo tinctures"/>
+    
+                    <div class="hoverBlogPanelEffect">
+                            Check it out!<br/>
+                            <i class="fa fa-long-arrow-right fa-2x" aria-hidden="true"></i>
+                    </div></a>
+                </div>
+    
+                <div class="blogPanelDescription">
+                    <caption><spam> Writer Name </spam>| Journalist</caption><br/><br/>
+    
+                    <h3><a href="https://storetest.mybigcommerce.com/your-first-blog-post/">Spend Quality Time With Your Pets!</a></h3>
+    
+                    <p>
+                    ipsum lorem ipsum ipsum lorem ipsum ipsum lorem ipsum ipsum lorem ipsum ipsum lorem ipsum ..... <br/></p>
+    
+                    <div>10.12.2019</div>
+                </div>
+            </div>
+    
+            <div  class="col-6 blogsPanel">
+    
+                <div class="showPanelEffect"><a href="#">
+    
+                    <img src="https://eddoj.github.io/images/product_in_category_sample.jpg" title="hustle n flo tinctures" alt="hustle n flo tinctures"/>
+    
+                    <div class="hoverBlogPanelEffect">
+                            Check it out!<br/>
+                            <i class="fa fa-long-arrow-right fa-2x" aria-hidden="true"></i>
+                    </div></a>
+                </div>
+    
+                <div class="blogPanelDescription">
+                    <caption><spam> Writer Name </spam>| Journalist</caption><br/><br/>
+    
+                    <h3><a href="#">Spend Quality Time With Your Pets!</a></h3>
+    
+                    <p>
+                    ipsum lorem ipsum ipsum lorem ipsum ipsum lorem ipsum ipsum lorem ipsum ipsum lorem ipsum ..... <br/></p>
+    
+                    <div>10.12.2019</div>
+                </div>
+            </div>
+            
+        </div>
+    
+        <div class="row" >
+    
+            <div  class="col-6 blogsPanel">
+    
+                <div class="showPanelEffect"><a href="#">
+    
+                    <img src="https://eddoj.github.io/images/product_in_category_sample.jpg" title="hustle n flo tinctures" alt="hustle n flo tinctures"/>
+    
+                    <div class="hoverBlogPanelEffect">
+                            Check it out!<br/>
+                            <i class="fa fa-long-arrow-right fa-2x" aria-hidden="true"></i>
+                    </div></a>
+                </div>
+    
+                <div class="blogPanelDescription">
+                    <caption><spam> Writer Name </spam>| Journalist</caption><br/><br/>
+    
+                    <h3><a href="#">Spend Quality Time With Your Pets!</a></h3>
+    
+                    <p>
+                    ipsum lorem ipsum ipsum lorem ipsum ipsum lorem ipsum ipsum lorem ipsum ipsum lorem ipsum ..... <br/></p>
+    
+                    <div>10.12.2019</div>
+                </div>
+            </div>
+    
+            <div  class="col-6 blogsPanel">
+    
+                <div class="showPanelEffect"><a href="#">
+    
+                    <img src="https://eddoj.github.io/images/product_in_category_sample.jpg" title="hustle n flo tinctures" alt="hustle n flo tinctures"/>
+    
+                    <div class="hoverBlogPanelEffect">
+                            Check it out!<br/>
+                            <i class="fa fa-long-arrow-right fa-2x" aria-hidden="true"></i>
+                    </div></a>
+                </div>
+    
+                <div class="blogPanelDescription">
+                    <caption><spam> Writer Name </spam>| Journalist</caption><br/><br/>
+    
+                    <h3><a href="#">Spend Quality Time With Your Pets!</a></h3>
+    
+                    <p>
+                    ipsum lorem ipsum ipsum lorem ipsum ipsum lorem ipsum ipsum lorem ipsum ipsum lorem ipsum ..... <br/></p>
+    
+                    <div>10.12.2019</div>
+                </div>
+            </div>
+            
+        </div>
+    
+        <div class="row" >
+    
+            <div  class="col-6 blogsPanel">
+    
+                <div class="showPanelEffect"><a href="#">
+    
+                    <img src="https://eddoj.github.io/images/product_in_category_sample.jpg" title="hustle n flo tinctures" alt="hustle n flo tinctures"/>
+    
+                    <div class="hoverBlogPanelEffect">
+                            Check it out!<br/>
+                            <i class="fa fa-long-arrow-right fa-2x" aria-hidden="true"></i>
+                    </div></a>
+                </div>
+    
+                <div class="blogPanelDescription">
+                    <caption><spam> Writer Name </spam>| Journalist</caption><br/><br/>
+    
+                    <h3><a href="#">Spend Quality Time With Your Pets!</a></h3>
+    
+                    <p>
+                    ipsum lorem ipsum ipsum lorem ipsum ipsum lorem ipsum ipsum lorem ipsum ipsum lorem ipsum ..... <br/></p>
+    
+                    <div>10.12.2019</div>
+                </div>
+            </div>
+    
+            <div  class="col-6 blogsPanel">
+    
+                <div class="showPanelEffect"><a href="#">
+    
+                    <img src="https://eddoj.github.io/images/product_in_category_sample.jpg" title="hustle n flo tinctures" alt="hustle n flo tinctures"/>
+    
+                    <div class="hoverBlogPanelEffect">
+                            Check it out!<br/>
+                            <i class="fa fa-long-arrow-right fa-2x" aria-hidden="true"></i>
+                    </div></a>
+                </div>
+    
+                <div class="blogPanelDescription">
+                    <caption><spam> Writer Name </spam>| Journalist</caption><br/><br/>
+    
+                    <h3><a href="#">Spend Quality Time With Your Pets!</a></h3>
+    
+                    <p>
+                    ipsum lorem ipsum ipsum lorem ipsum ipsum lorem ipsum ipsum lorem ipsum ipsum lorem ipsum ..... <br/></p>
+    
+                    <div>10.12.2019</div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+    <div id="articlesSection" class="row">
+    </div>
+
+
+
+<main id="blogCategoryPage" class="page">
+    
+    
+    {{#unless theme_settings.hide_blog_page_heading }}
+        <h1 class="page-heading">{{ blog.name }}</h1>
+    {{/unless}}
+
+    {{#each blog.posts}}
+        {{> components/blog/post post=this}}
+    {{/each}}
+
+    {{> components/common/paginator pagination.blog}} 
+    
+<script type="text/javascript"> 
+
+    var ourArticles = { 
+        author : 'John Doe',
+        authorId : 'jd007',
+        titleProfession : 'Journalist',
+        articleTitle : 'The Is A Meta CDB Article.',
+        articleBrief : 'Welcome to the top CDB guru out there! Let us begin with a quick lesson on what CBD is, why is there such a hype about it, and why you would need it.' ,
+        article : 'Welcome to the top CDB guru out there! Let us begin with a quick lesson on what CBD is, why is there such a hype about it, and why you would need it.  ',
+        date : '10.12.2019',
+        articelLayout : function() {
+            var articleHTML = "<div class='col-6 blogsPanel'>"+
+                "<a href='#'><div class='showPanelEffect'>"+
+                    "<img src='https://eddoj.github.io/images/product_in_category_sample.jpg' title='hustle n flo tinctures' alt='hustle n flo tinctures'/>"+
+                    "<div class='hoverBlogPanelEffect'>"+
+                            "Check it out!<br/>"+
+                            "<i class='fa fa-long-arrow-right fa-2x' aria-hidden='true'></i>"+
+                    "</div>"+
+                "</div></a>"+
+                "<div class='blogPanelDescription'>"+
+                    "<caption><spam>"+this.author+"</spam> | "+this.titleProfession+"</caption><br/><br/>"+
+                    "<h3><a href='#'>"+this.articleTitle+"</a></h3>"+
+                    "<p>"+this.articleBrief+"<br/></p>"+
+                    "<div>"+this.date+"</div>"+
+                "</div>"+
+            "</div>";
+
+            return articleHTML;
+        },
+    };
+
+    //craete a class that holds vibes categories (5)
+    //create another class with author blueprint
+    //vibes class will hold the articles by vibe category
+    //vibes will link aticles to author class via an ID
+    //Think of a db. 
+
+    
+    var blogPage = document.querySelector("#vibesArticles");
+    var content = document.querySelector("#articlesSection");
+    var vibes = document.querySelectorAll(".categoryBlog div");
+
+    
+    for(let i = 0; i < vibes.length; i++){
+        vibes[i].addEventListener("click", function(){
+            //alert(vibes.length);
+            runIt(i); 
+        });
+    }
+    
+
+   
+   function runIt(indx){
+       
+       if(indx === 0) {
+           content.innerHTML=ourArticles.articelLayout();
+       } else if (indx === 1) {
+           content.innerHTML=ourArticles.articelLayout();//vibesBlog["electric"]
+       } else if (indx === 2) {
+           content.innerHTML=ourArticles.articelLayout();
+       } else if (indx === 3) {
+           content.innerHTML=ourArticles.articelLayout();
+       } else if (indx === 4) {
+           content.innerHTML=ourArticles.articelLayout();
+           content.innerHTML+=ourArticles.articelLayout();
+       } else {
+           content.innerHTML="";
+       }
+        
+        
+        
+        if(indx !== 5 ) {
+            blogPage.classList.remove("show")
+            blogPage.classList.add("hide");
+        } else {
+            blogPage.classList.remove("hide");
+            blogPage.classList.add("show");
+        }
+   }
+   
+</script>
+</main>
+
+{{/partial}}
+{{> layout/base}}

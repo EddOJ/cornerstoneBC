@@ -1,0 +1,426 @@
+---
+products:
+    new:
+        limit: {{theme_settings.homepage_new_products_count}}
+    featured:
+        limit: {{theme_settings.homepage_featured_products_count}}
+    top_sellers:
+        limit: {{theme_settings.homepage_top_products_count}}
+carousel: {{theme_settings.homepage_show_carousel}}
+blog:
+    recent_posts:
+        limit: {{theme_settings.homepage_blog_posts_count}}
+---
+{{#partial "hero"}}
+    {{{region name="home_below_menu"}}}
+    {{#if carousel}}
+        {{> components/carousel arrows=theme_settings.homepage_show_carousel_arrows}}
+        
+        
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <style>
+        
+            .hustlenflo_intro {
+                text-align:center; width:60%; margin:0px auto; padding-bottom:75px;/*50*/
+            } 
+            
+            .hustlenflo_intro p, .blogWrapper p {
+                letter-spacing:1.7px; line-height:1.7em; font-size:16px;
+            }
+            
+            .margin-to-margin-section, .reg-section {
+                max-height:620px; margin:0px 0px 75px 0px; 
+            } 
+            
+            .shotNServices {
+                height: 620px;
+            }
+            
+            .leftPnSDiv:hover, .rightPnSDiv:hover {
+                opacity: 0.9;
+                background-color: #fafafa;
+            }
+            
+            .margin-to-margin-section {
+                position:relative;
+            }
+            
+            .margin-to-margin-section img {
+                width:100%; max-height:620px;
+            }
+            
+            .content-for-mtm-section, .reg-section-content {
+                display:flex; flex-direction:column; flex-wrap:wrap; justify-content:center; text-align:center;
+            }
+            
+            .content-for-mtm-section {
+                position:absolute; top: 15%;
+            }
+            
+            h1, h2 { font-size: 34px;}
+            
+            .hustlenflo_intro h1, .blogWrapper h2, .content-for-mtm-section h2, .reg-section-content h2 {
+                font-size:40px; 
+            } 
+            
+            .content-for-mtm-section h2, .reg-section-content h2 {
+                font-size:50px; font-weight:400px;  line-height:1.3em;
+            }/*font-family:serif !important;*/
+            
+            .content-for-mtm-section p, .reg-section-content p {
+                letter-spacing:1.7px; line-height:1.7em; font-size:16px;
+            }
+            
+            .content-for-mtm-section p > button, .reg-section-content p > a > button {
+                width:180px;  background-color:black; color:white; padding:8px 28px;
+            }
+            
+            .content-for-mtm-section p > button:hover, .reg-section-content p > a > button:hover {
+                background-color: transparent;/*rgb(98, 45, 57) opacity: 0.9;*/
+                font-weight: bold;
+                color:black;
+                border:2px solid black;
+            }
+            
+            
+            /*subscriber footer css*/
+            .removeBMargin {margin-bottom:0px;}
+            .removeBPadding {padding-bottom: 0px !important;}
+
+            .subscribeFeatureRight img {
+                width:100%; height: 100%;
+            }
+
+            .subscribeFeatureLeft {
+                display:flex; flex-wrap:wrap; flex-direction:column; text-align: left; padding: 8px 6% ;
+            }
+
+            .subscribeFeatureLeft  p {
+                color: #5c5c5c; padding-bottom: 1px; font-size: 30px; /*margin: 10px 0px 10px 0px;*/
+            }
+
+            .subscribeFeatureLeft h3 {
+                font-size: 33px; padding-bottom: 12%; font-weight: bold;
+            }
+
+            .subLeftSectionUpper {
+                width: 100%; border-radius: 50px; border: 1px solid black; margin: 0px auto 50px auto; padding: 15px;
+                display:flex;
+            } 
+
+            .subLeftSectionUpper input {
+                margin:0px; width: 80%; border: 0px; 
+            }
+
+            .subLeftSectionUpper input > button {
+                margin:0px; width: 19%; border: 0px; background-color:transparent; padding: 5px; float: right;
+            }
+
+            .subLeftSectionLower {
+                display:flex; flex-wrap:wrap; width:100%;
+            }
+
+            .subSocialMedia {
+                display: flex; flex-wrap: nowrap;
+            }
+
+            .subHashTag {
+                font-size: 20px; text-align: right; padding: 10px 0px;
+            }
+            
+            /* Blog Section / Home Page / Blog Page 12.18.2019*/ 
+            .blogWrapper {
+                text-align: center; background-color: #fafafa;
+            }
+
+            .blogWrapper h2 {
+                padding-top: 45px !important; margin-top:0px; margin-bottom: 10px;
+            }
+
+            .categoryBlog {
+                background-color: transparent;
+                display: flex; flex-wrap: now-wrap; 
+                justify-content: space-around;
+                height: auto;
+                padding: 15px 0px;
+                margin: 0px;
+            }
+
+            .categoryBlog div {
+                max-width: 400px !important;
+                /*min-width: 250px;*/
+                width: 32%; 
+                margin: 10px 0px; 
+                /*min-height: 180px;*/
+                height: 26vw; /*370px*/
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: white;
+                margin: 20px auto;
+                box-shadow: 5px 5px 15px rgba(0, 0, 0, .3); /* 5px 5px 5px, 0.2 */
+            }
+
+            .categoryBlog a > img {
+                width:80%; height:25vw; 
+            }
+
+            .categoryBlog div:hover {
+                opacity: 0.9;
+                background-color: #FBFFFE;
+            } 
+            
+            /*media queries below*/
+            @media only screen and (max-width: 850px) {
+                
+                .subHashTag, .subSocialMedia {
+                    width:100%;
+                    text-align: left;
+                }
+            }
+        
+            @media only screen and (max-width: 785px) {
+                .hustlenflo_intro {
+                    padding-bottom:50px;
+                }
+                
+                .hero {
+                    padding-bottom:50px;
+                }
+            
+                .margin-to-margin-section img, .reg-section img {
+                    min-height:334px;
+                } 
+                
+                .content-for-mtm-section {
+                    top: 6%;
+                }
+                
+                .reg-section img {
+                    max-height: 334px !important;/* keep fixing the mobile image issue */
+                }
+                
+                .shotNServices {
+                    height: 430px;
+                }
+                
+                .hustlenflo_intro h1, .blogWrapper h2, .content-for-mtm-section h2, .reg-section-content h2 {
+                    font-size:35px; 
+                }        
+                            
+                    /*Subscriber footer*/
+                .subscribeFeatureLeft h3 {
+                    font-size: 30px; padding-bottom: 0px; margin-bottom: 32px;
+                }
+
+                .subscribeFeatureLeft  p {
+                    padding-bottom: 0px; margin-bottom: 0px;
+                }
+
+                .subLeftSectionUpper {
+                    margin: 0px auto 32px auto; padding: 10px;
+                } 
+
+                /* Products Category Page */
+                .normalizeIMG {
+                    padding: 0% 0% 5% 0% !important;
+                }
+
+                .productCategory {
+                    padding: 5% 7.5% !important;
+                }
+                
+                /* Blog Section / Home Page / Blog Page */
+                .categoryBlog div {
+                    width: 44% !important;
+                    height: 38vw !important;
+                }
+
+                .categoryBlog a > img {
+                    height: 37vw !important;
+                }                
+                
+            }
+            
+            @media only screen and (max-width: 735px) {
+                
+                .hustlenflo_intro {
+                    width:75%;
+                }  
+
+                h1, h2, .content-for-mtm-section h2, .reg-section-content h2 {
+                    font-size:30px; 
+                } 
+                
+                h2 {
+                    font-weight:bold;
+                }
+                
+                h3 {
+                    font-size: 25px;
+                }
+  
+                .col-6 {
+                    width: 100%;
+                    padding-bottom: 20px;/* keep fixing the mobile image issue */
+                }   
+                
+                .shotNServices {
+                    min-height: 800px !important;
+                }
+                
+                /*Subscriber footer*/
+                .subscribeFeatureLeft {
+                    text-align: center;
+                }
+                
+                .subscribeFeatureLeft  p {
+                    padding-bottom: 0px; margin-bottom: 0px;
+                }  
+                
+                .subLeftSectionUpper {
+                    width: 70%;
+                } 
+
+                .subSocialMedia {
+                    justify-content: center;
+                }
+
+                .subHashTag {
+                    padding-top:0px !important;
+                    text-align: center;
+                }
+                
+                /* Products Category Page */
+                .shiftIMGPosition {
+
+                    flex-direction: column-reverse;
+                }
+                /*.shiftIMGPosition :nth-child(1) { order: 2; }
+                .shiftIMGPosition :nth-child(2) { order: 1; }*/
+
+            } 
+            
+        </style>
+        
+    <div id='magic' class="hustlenflo_intro" >
+        <h1>hustle + flo wellness</h1>
+        <p > 
+        
+           hustle + flo is on a mission to revitalize urban living through the simultaneous use of natural healing products and the exploration of dynamic learning practices to promote restoration designed to empower daily living. <br><br>
+           
+           Social responsibility, sustainability and inclusivity are pillars of our brand.  This is why for every purchase you make we will contribute 1% of our proceeds to organizations such as One Tree Planted and The Last Prisoner Project.  
+        
+        </p>
+        
+    </div>
+    
+    <div class="col-12 blogWrapper">
+        <h2>Vibes</h2><!-- margin-top:0; margin-bottom:10px; before moving blog inside vibes div -->
+    <p>
+        Blog description here ... 
+    </p>
+
+    <div class="row categoryBlog">
+      <div class="item" data-aos='fade-up' data-aos-delay="0">
+          <a href="https://adventstore.mybigcommerce.com/blog/"><img src="https://eddoj.github.io/images/meta-vibes.png" alt="Blog Image Category 1"/></a>
+      </div>
+      <div class="item" data-aos='fade-up' data-aos-delay="200">
+          <a href="https://adventstore.mybigcommerce.com/blog/"><img src="https://eddoj.github.io/images/electric-vibes.png" alt="Blog Image Category 1"/></a>
+      </div>
+      <div class="item" data-aos='fade-up' data-aos-delay="400">
+          <a href="https://adventstore.mybigcommerce.com/blog/"><img src="https://eddoj.github.io/images/chill-vibes.png" alt="Blog Image Category 1"/></a>
+      </div>
+      <div class="item" data-aos='fade-up' data-aos-delay="0"><a href="https://adventstore.mybigcommerce.com/blog/"><img src="https://eddoj.github.io/images/hustle-vibes.png" alt="Blog Image Category 1"/></a></div>
+      <div class="item" data-aos='fade-up' data-aos-delay="200"> 
+          <a href="https://adventstore.mybigcommerce.com/blog/"><img src="https://eddoj.github.io/images/pooch-vibes.png" alt="Blog Image Category 1"/></a>
+      </div>
+      <div class="item" data-aos='fade-up' data-aos-delay="400">
+          <a href="https://adventstore.mybigcommerce.com/blog/"><img src="https://eddoj.github.io/images/all-the-vibes.png" alt="Blog Image Category 1"/></a>
+      </div><!-- https://adventstore.mybigcommerce.com/blog/ -->
+    </div>
+    </div>
+    
+    <div class="row reg-section shotNServices" style="margin:0px !important;" >
+        <div  class="col-6 reg-section-content leftPnSDiv" data-aos="fade-right" data-aos-delay="200">
+                <h2>Wellness<br/>Product Line</h2>
+                <p>Comming Soon!</p>
+                <p>
+                    <a href="https://adventstore.mybigcommerce.com/shop-all/" target="_self" alt="Buy Products"><button>Browse All!</button></a>
+                </p>
+        </div>
+        <div  class="col-6 reg-section-content rightPnSDiv" data-aos="fade-left" data-aos-delay="200">
+                <h2>Curated<br/>Experience</h2>
+                <p>Comming Soon!</p>
+                <p>
+                    <a href="javascript:openModal()" target="_self" alt="Curated Experience"><button > Browse All!!</button></a>
+                </p>
+        </div>
+        
+    </div>
+    
+    <div class="row removeBMargin" data-aos="fade-right" data-aos-delay="200">
+        <div  class="col-6 subscribeFeatureLeft" >
+
+                <p >Nice to meet you!</p>
+
+                <h3 >Emails engineered to <br/>make you better.</h3>
+                
+                <div class="subLeftSectionUpper">
+                  <input type="text" value="Enter Email Address" />
+                  <button >Commit</button>
+                </div>
+
+                <div class="subLeftSectionLower"  >
+                <div class="col-6 subSocialMedia" >
+                  <a href="https://www.instagram.com/hustlenflo.co/" target="_blank"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a> &emsp;<i class="fa fa-youtube-play fa-3x" aria-hidden="true"></i>&emsp;<i class="fa fa-facebook-official fa-3x" aria-hidden="true"></i>
+                </div>
+                <div class="col-6 subHashTag" >#ownyourhustle</div>
+                </div>
+        </div>
+        <div class="col-6 subscribeFeatureRight removeBPadding">
+            <img src="https://eddoj.github.io/images/sample_email_sub_img.jpg" alt="Placeholder img"/> <!-- elment 485x620 actial omage used 664 x 848 -->
+        </div>
+        
+    </div>
+        
+    {{/if}}
+    {{{region name="home_below_carousel"}}}
+{{/partial}}
+
+{{#partial "page"}}
+
+    {{#each shipping_messages}}
+        {{> components/common/alert/alert-info message}}
+    {{/each}}
+<div class="main full">
+    <!-- {{#if products.featured}}
+        {{> components/products/featured products=products.featured columns=theme_settings.homepage_featured_products_column_count}}
+    {{/if}}
+    {{{region name="home_below_featured_products"}}}
+
+    {{#if products.top_sellers}}
+        {{> components/products/top products=products.top_sellers columns=theme_settings.homepage_top_products_column_count}}
+    {{/if}}
+    {{{region name="home_below_top_products"}}}
+
+    {{#if products.new}}
+        {{> components/products/new products=products.new columns=theme_settings.homepage_new_products_column_count}}
+    {{/if}} -->
+    {{{region name="home_below_new_products"}}}
+</div>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script type="text/javascript"> 
+//https://github.com/michalsnik/aos
+//https://codepen.io/michalsnik/pen/WxNdvq
+AOS.init({
+    offset:200,
+    duration:1000,
+    easing:'ease-in-out',
+    mirror:true,
+    once:true
+});
+</script>
+{{/partial}}
+{{> layout/base}}

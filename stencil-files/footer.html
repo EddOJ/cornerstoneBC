@@ -1,0 +1,137 @@
+{{#if banners.bottom}}
+    {{#if settings.data_tag_enabled}}
+        <div class="banners" data-banner-location="bottom">
+            {{#each (limit banners.bottom_metadata 1)}}
+                <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-name="{{this.banner-name}}">
+                    <div data-event-type="promotion-click">
+                        {{{this.content}}}
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    {{else}}
+        <div class="banners" data-banner-location="bottom">
+            <div class="banner">
+                {{{limit banners.bottom 1}}}
+            </div>
+        </div>
+    {{/if}}
+
+{{/if}}
+<footer class="footer" role="contentinfo">
+    <div class="container">
+        
+        <!-- social media icon was here before -->
+        
+        <section class="footer-info">
+            
+        {{#if theme_settings.social_icon_placement_bottom '!==' 'bottom_none'}}
+            <article  class="footer-info-col
+            footer-info-col--small
+                footer-info-col--{{#if theme_settings.social_icon_placement_bottom '===' 'bottom_left'}}left{{else}}right{{/if}}"
+                data-section-type="footer-webPages">
+                    <h5 class="footer-info-heading">LETS CONNECT</h5> <!-- {{lang 'social.connect'}} -->
+                    {{> components/common/social-links}}
+            </article> <!--footer-info-col--social removed -->
+        {{/if}}
+            
+            <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
+                <h5 class="footer-info-heading">FOOTER MENU</h5><!-- {{lang 'footer.navigate'}} -->
+                <ul class="footer-info-list">
+                    {{#each pages}}
+                        <li>
+                            <a href="{{url}}">{{name}}</a>
+                        </li>
+                    {{/each}}
+                    <li>
+                        <a href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a>
+                    </li>
+                </ul>
+            </article>
+
+            <!--<article class="footer-info-col footer-info-col--small" data-section-type="footer-categories">
+                <h5 class="footer-info-heading">CATEGORIES</h5> {{lang 'footer.categories'}}
+                <ul class="footer-info-list">
+                    {{#each categories}}
+                        <li>
+                            <a href="{{url}}">{{name}}</a>
+                        </li>
+                    {{/each}}
+                </ul>
+            </article> -->
+
+            {{#and theme_settings.shop_by_brand_show_footer shop_by_brand.length}}
+            <article  class="footer-info-col footer-info-col--small" data-section-type="footer-brands">
+                <h5 class="footer-info-heading">COMPANY</h5><!-- {{lang 'footer.brands'}} -->
+                
+                <ul class="footer-info-list">
+                        <li>
+                            <a href="#">hustle + flo</a>
+                        </li>
+                        <li>
+                            <a href="#">+1 (917) ‭‭‭584-4434</a>
+                        </li>
+                        <li>
+                            <a href="#">jamie@hustlenflo.co</a>
+                        </li>
+                </ul>
+                
+            </article>
+            
+            <!-- <article  class="footer-info-col footer-info-col--small" data-section-type="footer-brands">
+                <h5 class="footer-info-heading">BRANDS</h5>{{lang 'footer.brands'}}
+                <ul class="footer-info-list">
+                    {{#each shop_by_brand}}
+                        <li>
+                            <a href="{{url}}">{{name}}</a>
+                        </li>
+                    {{/each}}
+                    <li><a href="{{urls.brands}}">{{lang 'common.view_all'}}</a></li>
+                </ul>
+            </article> -->
+            {{/and}}
+
+            {{#if settings.address}}
+            <article class="footer-info-col footer-info-col--small" data-section-type="storeInfo">
+                <h5 class="footer-info-heading">{{lang 'footer.info'}}</h5>
+                <address>{{nl2br settings.address}}</address>
+                {{#if settings.phone_number}}
+                    <strong>{{lang 'footer.call_us' phone_number=settings.phone_number}}</strong>
+                {{/if}}
+            </article>
+            {{/if}}
+
+            <article class="footer-info-col" data-section-type="newsletterSubscription">
+                {{#if settings.show_newsletter_box}}
+                    {{> components/common/subscription-form}}
+                {{/if}}
+                {{> components/common/payment-icons}}
+            </article>
+            
+        </section>
+        {{#if theme_settings.geotrust_ssl_common_name}}
+            <div class="footer-geotrust-ssl-seal">
+                {{> components/common/geotrust-ssl-seal}}
+            </div>
+        {{/if}}
+        {{#if theme_settings.show_powered_by}}
+            <div class="footer-copyright" style="width:92% !important; padding-bottom:75px;">
+
+                <!-- IMP: Disclaimer -->
+                <p ><h5>Disclaimer:</h5> 
+                    This product is not for use by or sale to persons under the age of 18. This product should be used only as directed on the label. It should not be used if you are pregnant or nursing. Consult with a physician before use if you have a serious medical condition or use prescription medications. The statements made regarding these products have not been evaluated by the Food and Drug Administration. The efficacy of these products and the testimonials made have not been confirmed by FDA- approved research. These products are not intended to diagnose, treat, cure or prevent any disease. All information presented here is not meant as a substitute for or alternative to information from health care practitioners. Please consult your healthcare professional about potential interactions or other possible complications before using any product.<br/><br/>
+
+                    **Everything you read at hustlenflo.co, such as text, graphics, images, and other material, is for informational purposes only and does not constitute medical advice. Hustle + flo shall not be held liable for the medical claims made by customer testimonials.**
+                </p>
+
+                
+            </div>
+        {{/if}}
+        {{#if theme_settings.show_copyright_footer}}
+            <div class="footer-copyright col-12" style="text-align:right; font-size:15px !important;">
+                <p class="powered-by">&copy; {{moment format="YYYY"}} hustle + flo wellness 
+                <!-- {{settings.store_name}} -->
+            </div>
+        {{/if}}
+    </div>
+</footer>

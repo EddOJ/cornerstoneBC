@@ -1,0 +1,556 @@
+---
+category:
+    shop_by_price: true
+    products:
+        limit: {{theme_settings.categorypage_products_per_page}}
+---
+{{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
+{{inject "categoryId" category.id}}
+{{#partial "head"}}
+    {{#if pagination.category.previous}}
+        <link rel="prev" href="{{pagination.category.previous}}">
+    {{/if}}
+    {{#if pagination.category.next}}
+        <link rel="next" href="{{pagination.category.next}}">
+    {{/if}}
+{{/partial}}
+
+{{#partial "page"}}
+
+        <style>
+        
+            /* only the next two selectors modify stencil theme padding for the original categoy page */
+            .container {
+                padding: 0px !important;
+                margin: 0px !important;
+                max-width: 1366px !important;
+            }
+            
+            .productsSectionPage, .footer .container {
+                padding: 0 1.5rem !important;
+            }
+            
+            
+            /*.momentarily: remove style css once everythimg merges */
+                        .hustlenflo_intro {
+                text-align:center; width:60%; margin:0px auto; padding-bottom:75px;/*50*/
+            } 
+            
+            .hustlenflo_intro p {
+                letter-spacing:1.7px; line-height:1.7em; font-size:16px; /* letter spacing was 1px */
+            }
+            
+            .margin-to-margin-section, .reg-section {
+                max-height:620px; margin:0px 0px 75px 0px; 
+            } 
+            
+            .shotNServices {
+                height: 620px;
+            }
+            
+            .leftPnSDiv:hover, .rightPnSDiv:hover {
+                opacity: 0.9;
+                background-color: #fafafa;
+            }
+            
+            .margin-to-margin-section {
+                position:relative;
+            }
+            
+            .margin-to-margin-section img {
+                width:100%; max-height:620px;
+            }
+            
+            .content-for-mtm-section, .reg-section-content {
+                display:flex; flex-direction:column; flex-wrap:wrap; justify-content:center; text-align:center;
+            }
+            
+            .content-for-mtm-section {
+                position:absolute; top: 15%;
+            }
+            
+            h1, h2 {font-size: 40px;}
+            
+            .content-for-mtm-section h2, .reg-section-content h2 {
+                font-size:50px; font-weight:400px;  line-height:1.3em;
+            }/*font-family:serif !important;*/
+            
+            .content-for-mtm-section p, .reg-section-content p {
+                letter-spacing:1.7px; line-height:1.7em; font-size:16px;
+            }
+            
+            .content-for-mtm-section p > a > button, .reg-section-content p > a > button {
+                width:180px;  background-color:black; color:white; padding:8px 28px;
+            }
+
+            .content-for-mtm-section p > a > button:hover, .reg-section-content p > a > button:hover {
+                
+                background-color: transparent;/*rgb(98, 45, 57) opacity: 0.9;*/
+                font-weight: bold;
+                color:black;
+                border:2px solid black;
+                
+            }
+            
+            /*subscriber footer css*/
+            .removeBMargin {margin-bottom:0px;}
+
+            .subscribeFeatureRight img {
+                width:100%; height: 100%;
+            }
+
+            .subscribeFeatureLeft {
+                display:flex; flex-wrap:wrap; flex-direction:column; text-align: left; padding: 8px 6% ;
+            }
+
+            .subscribeFeatureLeft  p {
+                color: #5c5c5c; padding-bottom: 1px; font-size: 30px;
+            }
+
+            .subscribeFeatureLeft h3 {
+                font-size: 33px; padding-bottom: 12%; font-weight: bold;
+            }
+
+            .subLeftSectionUpper {
+                width: 100%; border-radius: 50px; border: 1px solid black; margin: 0px auto 50px auto; padding: 15px;
+                display:flex;
+            } 
+
+            .subLeftSectionUpper input {
+                margin:0px; width: 80%; border: 0px; 
+            }
+
+            .subLeftSectionUpper input > button {
+                margin:0px; width: 19%; border: 0px; background-color:transparent; padding: 5px; float: right;
+            }
+
+            .subLeftSectionLower {
+                display:flex; flex-wrap:wrap; width:100%;
+            }
+
+            .subSocialMedia {
+                display: flex; flex-wrap: nowrap;
+            }
+
+            .subHashTag {
+                font-size: 20px; text-align: right; padding: 10px 0px;
+            }
+            
+            /*media queries below*/
+            @media only screen and (max-width: 850px) {
+                
+                .subHashTag, .subSocialMedia {
+                    width:100%;
+                    text-align: left;
+                }
+            }
+        
+            @media only screen and (max-width: 785px) {
+                .hustlenflo_intro {
+                    padding-bottom:50px;
+                }
+                
+                .hero {
+                    padding-bottom:50px;
+                }
+            
+                .margin-to-margin-section img, .reg-section img {
+                    min-height:334px;
+                } 
+                
+                .content-for-mtm-section {
+                    top: 6%;
+                }
+                
+                .reg-section img {
+                    max-height: 334px !important;/* keep fixing the mobile image issue */
+                }
+                
+                .shotNServices {
+                    height: 430px;
+                }
+                
+                h1, h2, .content-for-mtm-section h2, .reg-section-content h2 {
+                    font-size:40px; 
+                }        
+                            
+                    /*Subscriber footer*/
+                .subscribeFeatureLeft h3 {
+                    font-size: 30px; padding-bottom: 0px; margin-bottom: 32px;
+                }
+
+                .subscribeFeatureLeft  p {
+                    padding-bottom: 0px; margin-bottom: 0px;
+                }
+
+                .subLeftSectionUpper {
+                    margin: 0px auto 32px auto; padding: 10px;
+                } 
+
+                /* Products Category Page */
+                .normalizeIMG {
+                    padding: 0% 0% 5% 0% !important;
+                }
+
+                .productCategory, .howItWorks {
+                    padding: 5% 7.5% !important;
+                }
+                
+            }
+            
+            @media only screen and (max-width: 735px) {
+                
+                .hustlenflo_intro {
+                    width:75%;
+                }  
+
+                h1, h2, .content-for-mtm-section h2, .reg-section-content h2 {
+                    font-size:30px; 
+                } 
+                
+                h2 {
+                    font-weight:bold;
+                }
+                
+                h3 {
+                    font-size: 25px;
+                }
+  
+                .col-6 {
+                    width: 100%;
+                    padding-bottom: 20px;/* keep fixing the mobile image issue */
+                }   
+                
+                .shotNServices {
+                    min-height: 800px !important;
+                }
+                
+                /*Subscriber footer*/
+                .subscribeFeatureLeft {
+                    text-align: center;
+                }
+                
+                .subscribeFeatureLeft  p {
+                    padding-bottom: 0px; margin-bottom: 0px;
+                }  
+                
+                .subLeftSectionUpper {
+                    width: 70%;
+                } 
+
+                .subSocialMedia {
+                    justify-content: center;
+                }
+
+                .subHashTag {
+                    padding-top:0px !important;
+                    text-align: center;
+                }
+                
+                /* Products Category Page */
+                .shiftIMGPosition {
+
+                    flex-direction: column-reverse;
+                }
+                /*.shiftIMGPosition :nth-child(1) { order: 2; }
+                .shiftIMGPosition :nth-child(2) { order: 1; }*/
+
+                .half-div {
+                    height: 180px !important;
+                }
+
+            }  
+
+            /* Products Category Page */
+            .productCategory, .howItWorks {
+                text-align: left;
+                padding: 5% 7.5%;/*2% instead of 0 previusly */
+            }
+
+            .howItWorks {
+                position: relative;
+            }
+
+            /* CSS for green numbered step images to the left of the How It Works description */
+            .howItWorks div {
+                position: absolute; z-index:-1; top: 10%; left:-0%;
+            }
+
+            .howItWorks div > img {
+                width: 50%;
+            }
+            /* End of css for green numbered step images*/
+
+            .productCategory {
+                justify-content: flex-start;
+            }
+
+            .howItWorksTitle {
+                position: absolute;
+            }
+
+            .howItWorks, .productCategoryTitle, .howItWorksTitle {
+                justify-content: center;
+            }
+
+            .howItWorks > img {
+                /*ATM CONTINUE add styles for mobile */
+            }
+
+            .productCategoryTitle h1 {
+                font-size:34px; margin: 0px 0px 25px 0px; 
+                font-weight: 100; letter-spacing: 1.7px; 
+                padding:0px;
+            }
+
+            .howItWorksTitle h1 {
+                margin:50px 0px; text-align:center !important;
+            }
+
+            .productCategory p, .howItWorks p {
+                padding: 0px; margin:0px 0px 25px 0px;
+            }
+
+            .productCategory h3, .howItWorks h3 {
+                
+                font-weight: 100;
+                font-size: 34px;
+                margin: 0 0 24px 0;
+                line-height: 37px;
+            } 
+
+            .half-div {
+                background-color:#f6f5f2; height: 210px; margin: 0px; padding: 0px;
+            }
+
+            .normalizeIMG, .normalizeIMGCenter {
+                position: relative;
+                padding: 0; /* 2% 0 */
+
+            }
+
+            .normalizeIMG {
+                justify-content: flex-start;/**/
+            }
+
+            .normalizeIMGCenter {
+                text-align: center;
+            }
+
+            .normalizeIMG img {
+                width: 100%;
+                max-height: 100vw;
+                /*padding-bottom: 50%;*/
+
+            }
+
+            .normalizeIMGCenter img {
+                width: 60%;
+            }
+
+        </style>
+
+    {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+    <div class="row margin-to-margin-section">
+        
+        <div class="col-12">
+            <img src="https://eddoj.github.io/images/product_page_sample.jpg" alt="Placeholder img"/>
+        </div>
+        
+    </div>
+        
+    <div class="row" style="justify-content: center;">
+        <div >
+            <h1 style="font-size:34px; margin: 0px 0px 25px 0px; font-weight: 100; letter-spacing: 1.7px; padding:0px;">What You Get</h1>
+        </div>
+        
+    </div>
+
+    <div class="row removeBMargin" >
+
+        <div  class="col-6 normalizeIMG">
+            <img src="https://eddoj.github.io/images/product_in_category_sample.jpg" title="hustle n flo tinctures" alt="hustle n flo tinctures"/>
+        </div>
+
+        <div  class="col-6 productCategory reg-section-content">
+                <h3>CBD Tinctures</h3>
+                <p>Our tinctures are someting you should definetile try out! Somehting else here. Somehting else here.Somehting else here.Somehting else here.Somehting else here.Somehting else here.</p>
+                <p>
+                    <a href="https://storetest.mybigcommerce.com/able-brewing-system/" target="_self" alt="Buy Product"><button>Shop Now!</button></a>
+                </p>
+        </div>
+        
+    </div>
+
+    <div class="row removeBMargin shiftIMGPosition" >
+        <div  class="col-6 productCategory reg-section-content">
+                <h3>CBD Softgels</h3>
+                <p>Our tinctures are someting you should definetile try out! Somehting else here. Somehting else here.Somehting else here.Somehting else here.Somehting else here.Somehting else here.</p>
+                <p>
+                    <a href="https://storetest.mybigcommerce.com/able-brewing-system/" target="_self" alt="Buy Product"><button>Shop Now!</button></a>
+                </p>
+        </div>
+        <div  class="col-6 normalizeIMG">
+            <img src="https://eddoj.github.io/images/product_in_category_sample.jpg" title="hustle n flo tinctures" alt="hustle n flo tinctures"/>
+        </div>
+        
+    </div>
+
+    <div class="row removeBMargin" >
+
+        <div  class="col-6 normalizeIMG">
+            <img src="https://eddoj.github.io/images/product_in_category_sample.jpg" title="hustle n flo tinctures" alt="hustle n flo tinctures"/>
+        </div>
+
+        <div  class="col-6 productCategory reg-section-content">
+                <h3>CBD Gummies</h3>
+                <p>Our tinctures are someting you should definitely try out! Somehting else here. Somehting else here.Somehting else here.Somehting else here.Somehting else here.Somehting else here.</p>
+                <p>
+                    <a href="https://storetest.mybigcommerce.com/able-brewing-system/" target="_self" alt="Buy Product"><button>Shop Now!</button></a>
+                </p>
+        </div>
+        
+    </div>
+
+    <div class="row removeBMargin shiftIMGPosition" >
+        <div  class="col-6 productCategory reg-section-content">
+                <h3>CBD Pet Chews</h3>
+                <p>Our tinctures are someting you should definetile try out! Somehting else here. Somehting else here.Somehting else here.Somehting else here.Somehting else here.Somehting else here.</p>
+                <p>
+                    <a href="https://storetest.mybigcommerce.com/able-brewing-system/" target="_self" alt="Buy Product"><button>Shop Now!</button></a>
+                </p>
+        </div>
+        <div  class="col-6 normalizeIMG">
+            <img src="https://eddoj.github.io/images/product_in_category_sample.jpg" title="hustle n flo tinctures" alt="hustle n flo tinctures"/>
+        </div>
+        
+    </div>
+
+<!-- {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+{{#if category.image}}
+    {{> components/common/responsive-img
+        image=category.image
+        fallback_size=theme_settings.zoom_size
+        lazyload=theme_settings.lazyload_mode
+        class="category-header-image"
+    }}
+{{/if}}
+{{#unless theme_settings.hide_category_page_heading }}
+    <h1 class="page-heading">{{category.name}}</h1>
+    {{{region name="category_below_header"}}}
+{{/unless}}
+{{{category.description}}}
+<div class="page">
+    {{#if category.faceted_search_enabled}}
+        <aside class="page-sidebar" id="faceted-search-container">
+            {{> components/category/sidebar}}
+        </aside>
+    {{else if category.subcategories}}
+        <aside class="page-sidebar" id="faceted-search-container">
+            {{> components/category/sidebar}}
+        </aside>
+    {{else if category.shop_by_price}}
+        {{#if theme_settings.shop_by_price_visibility}}
+             <aside class="page-sidebar" id="faceted-search-container">
+                {{> components/category/sidebar}}
+            </aside>
+        {{/if}}
+    {{/if}} 
+    
+    <main class="page-content" id="product-listing-container">
+        {{> components/category/product-listing}}
+        {{{region name="category_below_content"}}}
+    </main>
+</div>
+        <div class="row" style="padding:0px; margin-bottom:0px;">
+        
+            <div class="col-12" >
+                <img src="https://eddoj.github.io/images/bottom_product_img.png" alt="Placeholder img"/>
+            </div>
+        
+        </div>      <main class="page-content" id="product-listing-container">
+        {{> components/category/product-listing}}
+        {{{region name="category_below_content"}}}
+    </main>
+</div>
+-->
+
+    <div class="row">
+
+        <div class="col-6 half-div"></div>
+        <div class="row howItWorksTitle">
+            <h1> <i class="fa fa-cog" aria-hidden="true"></i>  &thinsp;<i class="fa fa-cog" aria-hidden="true"></i>  &thinsp;<i class="fa fa-cogs" aria-hidden="true"></i><br/>How It Works <!----></h1>
+        </div>
+        
+    </div>
+
+    <div class="row removeBMargin" >
+
+        <div  class="col-6 normalizeIMGCenter">
+            <img src="https://eddoj.github.io/images/how_it_works_sample.png"  title="hustle n flo tinctures" alt="hustle n flo tinctures"/>
+        </div>
+
+        <div  class="col-6 howItWorks reg-section-content">
+            <div>
+                <img src="https://eddoj.github.io/images/1.png" alt="how it works step 1">
+            </div>
+                <h3>Grown In Colorado</h3>
+                <p>Our tinctures are someting you should definetile try out! Somehting else here. </p>
+
+        </div>
+        
+    </div>
+
+    <div class="row removeBMargin shiftIMGPosition" >
+        <div  class="col-6 howItWorks reg-section-content">
+
+            <div>
+                <img src="https://eddoj.github.io/images/2.png" alt="how it works step 1">
+            </div>
+
+                <h3> Copackaged In Colorado</h3>
+                <p>Our tinctures are someting you should definetile try out! Somehting else here.</p>
+        </div>
+        <div  class="col-6 normalizeIMGCenter">
+            <img src="https://eddoj.github.io/images/how_it_works_sample.png" title="hustle n flo tinctures" alt="hustle n flo tinctures"/>
+        </div>
+        
+    </div>
+
+    <div class="row removeBMargin" >
+
+        <div  class="col-6 normalizeIMGCenter">
+            <img src="https://eddoj.github.io/images/how_it_works_sample.png" title="hustle n flo tinctures" alt="hustle n flo tinctures"/>
+        </div>
+
+        <div  class="col-6 howItWorks reg-section-content">
+
+            <div>
+                <img src="https://eddoj.github.io/images/3.png" alt="how it works step 1">
+            </div>
+
+                <h3>Convenient Shipping</h3>
+                <p>Our tinctures are someting you should definetile try out! Somehting else here. </p>
+        </div>
+        
+    </div>
+
+    <div class="row removeBMargin shiftIMGPosition" >
+        <div  class="col-6 howItWorks reg-section-content">
+
+            <div>
+                <img src="https://eddoj.github.io/images/4.png" alt="how it works step 1">
+            </div>
+
+                <h3>Delivered to your door!</h3>
+                <p>Our tinctures are someting you should definetile try out! Somehting else here.</p>
+        </div>
+        <div  class="col-6 normalizeIMGCenter">
+            <img src="https://eddoj.github.io/images/how_it_works_sample.png" title="hustle n flo tinctures" alt="hustle n flo tinctures"/>
+        </div>
+        
+    </div>
+
+{{/partial}}
+{{> layout/base}}
