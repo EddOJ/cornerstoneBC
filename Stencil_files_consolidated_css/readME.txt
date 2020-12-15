@@ -5,21 +5,16 @@ Replace the files on the BigCommerce Stencil theme with the files in this folder
 base page 	 : 	templates/layouts/ 
 blog page 	 : 	templates/pages/ 
 carousel 	 :	templates/components/common/
-cart-preview : 	templates/components/common/  x
 category	 : 	templates/pages/ 
-description	 : 	templates/components/products/ x
 footer 		 :	templates/components/common/
 header 		 :	templates/components/common/
 home page 	 : 	templates/pages/ 
 page 		 : 	templates/pages/ 
 post 		 : 	templates/components/blog/	
-product-view : 	templates/components/products/ x
-product 	 : 	templates/pages/ x
-share 		 :	templates/components/common/ x
 subscription-form :	templates/components/common/ 
 
 
-NOTE: For the "paste_on_ ..." files, just create a regular webpage with the appropriate title on BC, use the WYSIWYG html editor and pase the content inside each "paste_on_ ..."  file as directed in its instructions--if there are any.
+NOTE: For the files with "paste_on_ ..." on their file names, just create a regular webpage with the appropriate title on BC, use the WYSIWYG html editor and pase the content inside each "paste_on_ ..."  file as directed in its instructions--if there are any.
 
 Also, make sure to update the links that point to the store on the following pages: blog.html, category.html, header.html, and home.html
 For example, https://otkstore.mybigcommerce.com/able-brewing-system/ should be changed to to the new sotre link.
