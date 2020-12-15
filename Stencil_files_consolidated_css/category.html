@@ -1,0 +1,224 @@
+---
+category:
+    shop_by_price: true
+    products:
+        limit: {{theme_settings.categorypage_products_per_page}}
+---
+{{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
+{{inject "categoryId" category.id}}
+{{#partial "head"}}
+    {{#if pagination.category.previous}}
+        <link rel="prev" href="{{pagination.category.previous}}">
+    {{/if}}
+    {{#if pagination.category.next}}
+        <link rel="next" href="{{pagination.category.next}}">
+    {{/if}}
+{{/partial}}
+
+{{#partial "page"}}
+
+
+    {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+    <div class="row margin-to-margin-section">
+        
+        <div class="col-12">
+            <img src="https://eddoj.github.io/images/product_page_sample.jpg" alt="Placeholder img"/>
+        </div>
+        
+    </div>
+        
+    <div class="row" style="justify-content: center;">
+        <div >
+            <h1 style="font-size:34px; margin: 0px 0px 25px 0px; font-weight: 100; letter-spacing: 1.7px; padding:0px;">What You Get</h1>
+        </div>
+        
+    </div>
+
+    <div class="row removeBMargin" >
+
+        <div  class="col-6 normalizeIMG">
+            <img src="https://eddoj.github.io/images/product_in_category_sample.jpg" title="hustle n flo tinctures" alt="hustle n flo tinctures"/>
+        </div>
+
+        <div  class="col-6 productCategory reg-section-content">
+                <h3>CBD Tinctures</h3>
+                <p>Our tinctures are someting you should definetile try out! Somehting else here. Somehting else here.Somehting else here.Somehting else here.Somehting else here.Somehting else here.</p>
+                <p>
+                    <a href="https://otkstore.mybigcommerce.com/able-brewing-system/" target="_self" alt="Buy Product"><button>Shop Now!</button></a>
+                </p>
+        </div>
+        
+    </div>
+
+    <div class="row removeBMargin shiftIMGPosition" >
+        <div  class="col-6 productCategory reg-section-content">
+                <h3>CBD Softgels</h3>
+                <p>Our tinctures are someting you should definetile try out! Somehting else here. Somehting else here.Somehting else here.Somehting else here.Somehting else here.Somehting else here.</p>
+                <p>
+                    <a href="https://otkstore.mybigcommerce.com/able-brewing-system/" target="_self" alt="Buy Product"><button>Shop Now!</button></a>
+                </p>
+        </div>
+        <div  class="col-6 normalizeIMG">
+            <img src="https://eddoj.github.io/images/product_in_category_sample.jpg" title="hustle n flo tinctures" alt="hustle n flo tinctures"/>
+        </div>
+        
+    </div>
+
+    <div class="row removeBMargin" >
+
+        <div  class="col-6 normalizeIMG">
+            <img src="https://eddoj.github.io/images/product_in_category_sample.jpg" title="hustle n flo tinctures" alt="hustle n flo tinctures"/>
+        </div>
+
+        <div  class="col-6 productCategory reg-section-content">
+                <h3>CBD Gummies</h3>
+                <p>Our tinctures are someting you should definitely try out! Somehting else here. Somehting else here.Somehting else here.Somehting else here.Somehting else here.Somehting else here.</p>
+                <p>
+                    <a href="https://otkstore.mybigcommerce.com/able-brewing-system/" target="_self" alt="Buy Product"><button>Shop Now!</button></a>
+                </p>
+        </div>
+        
+    </div>
+
+    <div class="row removeBMargin shiftIMGPosition" >
+        <div  class="col-6 productCategory reg-section-content">
+                <h3>CBD Pet Chews</h3>
+                <p>Our tinctures are someting you should definetile try out! Somehting else here. Somehting else here.Somehting else here.Somehting else here.Somehting else here.Somehting else here.</p>
+                <p>
+                    <a href="https://otkstore.mybigcommerce.com/able-brewing-system/" target="_self" alt="Buy Product"><button>Shop Now!</button></a>
+                </p>
+        </div>
+        <div  class="col-6 normalizeIMG">
+            <img src="https://eddoj.github.io/images/product_in_category_sample.jpg" title="hustle n flo tinctures" alt="hustle n flo tinctures"/>
+        </div>
+        
+    </div>
+
+<!-- {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+{{#if category.image}}
+    {{> components/common/responsive-img
+        image=category.image
+        fallback_size=theme_settings.zoom_size
+        lazyload=theme_settings.lazyload_mode
+        class="category-header-image"
+    }}
+{{/if}}
+{{#unless theme_settings.hide_category_page_heading }}
+    <h1 class="page-heading">{{category.name}}</h1>
+    {{{region name="category_below_header"}}}
+{{/unless}}
+{{{category.description}}}
+<div class="page">
+    {{#if category.faceted_search_enabled}}
+        <aside class="page-sidebar" id="faceted-search-container">
+            {{> components/category/sidebar}}
+        </aside>
+    {{else if category.subcategories}}
+        <aside class="page-sidebar" id="faceted-search-container">
+            {{> components/category/sidebar}}
+        </aside>
+    {{else if category.shop_by_price}}
+        {{#if theme_settings.shop_by_price_visibility}}
+             <aside class="page-sidebar" id="faceted-search-container">
+                {{> components/category/sidebar}}
+            </aside>
+        {{/if}}
+    {{/if}} 
+    
+    <main class="page-content" id="product-listing-container">
+        {{> components/category/product-listing}}
+        {{{region name="category_below_content"}}}
+    </main>
+</div>
+        <div class="row" style="padding:0px; margin-bottom:0px;">
+        
+            <div class="col-12" >
+                <img src="https://eddoj.github.io/images/bottom_product_img.png" alt="Placeholder img"/>
+            </div>
+        
+        </div>      <main class="page-content" id="product-listing-container">
+        {{> components/category/product-listing}}
+        {{{region name="category_below_content"}}}
+    </main>
+</div>
+-->
+
+    <div class="row">
+
+        <div class="col-6 half-div"></div>
+        <div class="row howItWorksTitle">
+            <h1> <i class="fa fa-cog" aria-hidden="true"></i>  &thinsp;<i class="fa fa-cog" aria-hidden="true"></i>  &thinsp;<i class="fa fa-cogs" aria-hidden="true"></i><br/>How It Works <!----></h1>
+        </div>
+        
+    </div>
+
+    <div class="row removeBMargin" >
+
+        <div  class="col-6 normalizeIMGCenter">
+            <img src="https://eddoj.github.io/images/how_it_works_sample.png"  title="hustle n flo tinctures" alt="hustle n flo tinctures"/>
+        </div>
+
+        <div  class="col-6 howItWorks reg-section-content">
+            <div>
+                <img src="https://eddoj.github.io/images/1.png" alt="how it works step 1">
+            </div>
+                <h3>Grown In Colorado</h3>
+                <p>Our tinctures are someting you should definetile try out! Somehting else here. </p>
+
+        </div>
+        
+    </div>
+
+    <div class="row removeBMargin shiftIMGPosition" >
+        <div  class="col-6 howItWorks reg-section-content">
+
+            <div>
+                <img src="https://eddoj.github.io/images/2.png" alt="how it works step 1">
+            </div>
+
+                <h3> Copackaged In Colorado</h3>
+                <p>Our tinctures are someting you should definetile try out! Somehting else here.</p>
+        </div>
+        <div  class="col-6 normalizeIMGCenter">
+            <img src="https://eddoj.github.io/images/how_it_works_sample.png" title="hustle n flo tinctures" alt="hustle n flo tinctures"/>
+        </div>
+        
+    </div>
+
+    <div class="row removeBMargin" >
+
+        <div  class="col-6 normalizeIMGCenter">
+            <img src="https://eddoj.github.io/images/how_it_works_sample.png" title="hustle n flo tinctures" alt="hustle n flo tinctures"/>
+        </div>
+
+        <div  class="col-6 howItWorks reg-section-content">
+
+            <div>
+                <img src="https://eddoj.github.io/images/3.png" alt="how it works step 1">
+            </div>
+
+                <h3>Convenient Shipping</h3>
+                <p>Our tinctures are someting you should definetile try out! Somehting else here. </p>
+        </div>
+        
+    </div>
+
+    <div class="row removeBMargin shiftIMGPosition" >
+        <div  class="col-6 howItWorks reg-section-content">
+
+            <div>
+                <img src="https://eddoj.github.io/images/4.png" alt="how it works step 1">
+            </div>
+
+                <h3>Delivered to your door!</h3>
+                <p>Our tinctures are someting you should definetile try out! Somehting else here.</p>
+        </div>
+        <div  class="col-6 normalizeIMGCenter">
+            <img src="https://eddoj.github.io/images/how_it_works_sample.png" title="hustle n flo tinctures" alt="hustle n flo tinctures"/>
+        </div>
+        
+    </div>
+
+{{/partial}}
+{{> layout/base}}

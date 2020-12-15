@@ -10,59 +10,14 @@
         <link href="{{ head.favicon }}" rel="shortcut icon">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
-        
+            
         <style>
-        
-           @font-face {
-               font-family: "Hero";
-               src: url("{{cdn 'webdav:/hero/Hero-Regular.ttf'}}");
-               src: url("{{cdn 'webdav:/hero/Hero-Regular.eot'}}");  /* IE9 Compat Modes */
-               src: url("{{cdn 'webdav:/hero/Hero-Regular.eot?#iefix'}}"), /* IE6-IE8 */
-                   url("{{cdn 'webdav:/hero/Hero-Regular.woff2'}}"), /* Super Modern Browsers */
-                   url("{{cdn 'webdav:/hero/Hero-Regular.woff'}}"),  /* Pretty Modern Browsers */
-                   url("{{cdn 'webdav:/hero/Hero-Regular.svg#svgFontName'}}"); /* Legacy iOS */
-           }
-        
-            .body {
-                width: 100%; padding: 0px !important; margin: 0 auto !important;  max-width: 1366px;
-            }
-            
-            h2, h3, h4, h5, h6 {
-                font-family: "Hero" !important;
-            }
-            
-            .footer {
-                padding:80px 15px !important;
-                background-color: #17172c !important;
-                max-width: 1366px; margin: 0px auto;
-                font-family: "Quicksand", Sans-Serif;
-                
-            } /*   footer - rgb(166, 166, 166) !important, h5 - rgb(204, 204, 204),  rgb(117, 117, 117) !important */
-            
-            .footer-info-col {
-                color: white !important;
-            }
-            
-            .footer h5 {
-                color: white !important;
-                font-size: 17px;
-            }
-            
-            .powered-by, .footer, .footer p, .footer a {
-                color: white !important;
-                font-size: 16px !important;
-            }            
-            
-            .footer-info article {
-                 margin-right:3%;
-            }
-            
             .notAtHome {
                 position: relative !important;
             }
 
         </style>
-
+        
         <script>
             {{!-- Change document class from no-js to js so we can detect this in css --}}
             document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
@@ -151,14 +106,14 @@ function openModal() {
 //
 //   SCROLLABLE HEADER BELOW
 //
-window.onscroll = function() {myFunction()};
+window.onscroll = function() {rollingHeader()};
 var header = document.getElementById("myHeader");
 var sticky = header.offsetTop;
 
 //console.log(sticky, window.pageYOffset);
 //var heroScroll = document.getElementById("heroScroll");//12/18/2019 added jacky; hero effect
 
-function myFunction() {
+function rollingHeader() {
   if (window.pageYOffset > sticky) {
     header.classList.add("sticky");
     //heroScroll.classList.add("heroScroll");//12/18/2019 added jacky; hero effect

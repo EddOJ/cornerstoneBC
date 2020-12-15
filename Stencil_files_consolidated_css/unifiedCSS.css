@@ -1,0 +1,1112 @@
+
+/*Header/Geberal CSS */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%; padding: 0px !important; margin: 0px !important;
+}
+
+/*body*/ p {
+    font-family: 'Quicksand', sans-serif !important;
+}
+
+a {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+/*a:visited {
+    color: black;
+}*/
+
+
+/*
+
+CSS Website Grid
+
+*/
+
+.grid {
+    position: relative;
+    margin: 0 auto;
+    max-width: 1366px;
+    width: 100%;
+}
+
+.row {
+    width: 100%;
+    margin-bottom: 25px;
+    display: flex;
+    flex-wrap: wrap; /*useful when fixed items should responsively move to the next line*/
+    
+}
+
+.col-1 {
+    width: 8.33%;
+}
+
+.col-2 {
+    width: 16.66%;
+}
+
+.col-3 {
+    width: 25%;
+}
+
+.col-4 {
+    width: 33.33%;
+}
+
+
+.col-5 {
+    width: 41.66%;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-7 {
+    width: 58.33%;
+}
+
+.col-8 {
+    width: 66.66%;
+}
+
+.col-9 {
+    width: 75%;
+}
+
+.col-10 {
+    width: 83.33%;
+}
+
+.col-11 {
+    width: 91.66%;
+}
+
+.col-12 {
+    width: 100%;
+}
+
+
+/*
+
+Website content
+
+
+
+p {padding: 10px; overflow: auto; }
+*/
+
+.hero {
+    flex-direction: column;
+    padding-bottom: 75px;
+}
+
+.heroScroll { /* 12/18/2019 added jacky; 1 previously */
+    z-index: 1000; 
+    max-width:1366px;
+    position: fixed;
+    top: -300px;
+    animation-name: midWay; /* calls amimation from keyframes below*/
+    animation-duration: 1.8s;
+}
+
+.myHeader {
+    z-index: 1001;
+    position: fixed;/** only for desktop view / changed for mobile   **/
+    max-width: 1366px;
+    max-height: 150px;
+    padding: 20px;
+    width: 100%;
+    margin: 0px;
+    /*justify-content: space-between;*/
+    background-color: transparent;
+}
+
+.myHeader .header-cols {max-height: 100px;} /* IMP: djust this with the actual height of the logo */
+
+/* Used in conjunction with js to make the header fixed once a user scrolls down*/
+.sticky {
+  position: fixed !important; /* added !important so that when a user is not on the home page and the js (located in the base.htnl) displays header as position:relative; , the sticky css will still be scrollable and fixed */
+  top: 0;
+  width: 100%;
+  background-color:rgba(255,255,255,0.9) !important;/* predetermine it here, and use it in the animaiton*/
+  animation-name: example; /* calls amimation from keyframes below*/
+  animation-duration: 1.8s;
+  max-height: 100px;
+}
+
+
+.sticky img {
+    width: 50px; height: 50px;
+} 
+
+.sticky .header-cols, .sticky .logo{ /* for the logog container -- to prevent from growing bigger than the 50x50 pic*/
+    max-height: 50px;
+}
+
+.sticky, .myHeader {
+    border-bottom: 1px transparent;
+}
+
+.logo {
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    max-height: 100px;
+}
+
+
+/* header animation
+
+https://www.youtube.com/watch?v=TfDK-KLq0Ks [css transform anumatio for transitioning html elements with animation as they scroll on them]
+https://www.w3schools.com/css/css3_animations.asp
+
+Safari 4.0 - 8.0 */
+@-webkit-keyframes example {
+  from {background-color: transparent; top:-100px;}
+  to {background-color:rgba(255,255,255,0.9) !important; top:0px;}
+}
+
+/* Standard syntax */
+@keyframes example {
+  from {background-color: transparent; top:-100px;}
+  to {background-color:rgba(255,255,255,0.9) !important; top:0px;}
+}
+
+/* hero animation  Safari 4.0 - 8.0 */
+@-webkit-keyframes midWay {
+  from {top:-400px;}
+  to {top:-300px;}
+}
+
+/* Standard syntax */
+@keyframes midWay {
+  from {top:-400px;}
+  to {top:-300px;}
+}
+
+/*.CSS for the drop down menu below */
+
+.navbar, .navbar-right { 
+    position: relative; top:35%; height: 32px;}
+
+.sticky .navbar, .sticky .navbar-right { top: 25%; }/* reposition nav when sticky header appears */
+
+.navbar-right a {float: right;}
+
+.navbar a {float: left;}
+
+.navbar a, .navbar-right a {
+  font-size: 14px !important;
+  text-align: center;
+  padding: 5px 11px;
+  text-decoration: none;
+}
+
+.drop {
+  float: left;
+  overflow: hidden;
+}
+
+.drop .dropbtn {
+  font-size: 14px;  
+  border: none;
+  outline: none;
+  padding: 5px 11px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .navbar-right a:hover, .dropdown:hover .dropbtn {
+  background-color: transparent;
+  color: black; /*added 01/16/2020*/
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f2f2f2;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 7px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover, .drop button:hover{ /* .drop button:hover added 11/21/2019*/
+  font-weight: bold;
+}   
+
+.dropdown-content a:hover { /* .dropdown-content a:hove modified 11/21/2019*/
+  font-weight: bold;
+  background-color: #f7f7f7;
+}
+
+.drop:hover .dropdown-content {
+  display: block;
+} /****/
+
+
+.dropdown--quickSearch.is-open {/*ATM HERE*/
+    top:57px !important;
+    padding:12px;
+}
+
+.navUser-item--cart .dropdown-menu.is-open { /*shoping cart items count box display*/
+    top:100% !important;
+}
+
+.navUser-section, .navUser-item--account {
+    display: flex;
+}
+
+.navUser {
+    transform:none; /*prevents bigcommerce defined css from misplacing the shoping cart when screen size below 801px*/
+}
+
+/*previewCartItem-price is used to center the price tag on the preview cart box*/
+.previewCartItem-price  {
+    padding-left: 30%;
+}
+
+.button {
+    /*padding: .85714rem 2rem !important;*/
+}
+
+/*CSS FOR COMMING SOON MODAL BELOW */
+#modalDisplay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1004;
+    width:100%;
+    height:100%;
+    background-color: rgba(0,0,0,0.6);
+    display: none;
+}
+        
+.modalPops {
+    z-index: 1005;
+    position: absolute;
+    float: left;/*removes current flow from element*/
+    /*attributes below should center modal content*/
+    left: 50%; 
+    top: 50%;
+    transform: translate(-50%, -50%);/*centers it for good*/
+    background-color:white;
+    width: 600px;
+    height: 450px;/*500px previously;*/
+    border-radius: 30px;
+    /*padding:20%;*/
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, .9);
+}
+        
+.modalContentRight {
+    white-space:no-wrap;
+    overflow: hidden !important;
+    /*opacity: .8;
+    background: linear-gradient(to right, #23074d, #cc5333);*/
+}
+        
+.modalContentLeft {
+    padding: 2.5% 5%;
+}
+        
+/**/.modalContentLeft h2 {
+    font-size: 34px;/*remove once consolidated*/ line-height: normal; letter-spacing: normal;
+    margin: 21px 0px;
+}
+        
+.modalContentLeft form {
+    background-color: white; display:flex; width: 100%; border-radius: 15px; border: 1px solid black; padding: 10px;
+}
+        
+.modalContentLeft form > input {
+    border:0px; width: 65%; /*70% prev*/color: #868686;
+}
+        
+.modalContentLeft form > button {
+    background-color: transparent; /*height:100%;*/ border:0px;  width: 35%;  /*30% prev */
+}
+        
+.modalContentLeft p {
+    margin: 21px 0px; padding-left:0px; color: #868686; line-height: 1.5em; letter-spacing: normal; font-size: 14px;
+}
+        
+.modalContentRight img {
+    position: relative;
+    border-radius: 0px 30px 30px 0px;
+    width: 100%;
+    /*height: 450px;HERE ATM*/
+    /*168
+    right: 30%;*/
+}
+        
+.shareIt {
+    float: left;
+}
+          
+.shareIt a {
+    text-decoration: none;; 
+}
+        
+.shareIt a > span {
+    padding-left:10px; 
+}
+        
+#closeIt {
+    z-index:1006; position:absolute; top:-15px; right:-15px; border-radius: 50%; width:35px; height: 35px;  color: white; background-color: black; font-size: 24px;/*27px prev*/ text-align: center; box-shadow: 5px 5px 15px rgba(0, 0, 0, .4);
+}
+ /* END OF CSS FOR COMMING SOON MODAL */
+          
+
+/*   ------    MOBILE CSS    ------
+
+
+Useful for making websites responsive. We can a specific layout for desktops, tablets and phones */
+/* only keyword is useful for older browsers [remember] 
+   screen keywords tells browsrs that it applies to all devices [any screen]
+   max-width keyword means that the style within the brackets will apply so long as the screen is at <= 300px (will not apply if bigger).
+
+   767px for tablets
+   735px for mobile content resize 
+
+   logo mobile : 33px;
+   header mobile: 53px; 
+
+*/
+
+.hamburger {
+  padding:5px; 
+}
+
+.hamburger:hover {
+  background-color: #f2f2f2; 
+}
+
+.mobile-dev { /*to turn off mobile nav when screen size over 735px*/
+  display: none;
+}
+
+.show { /*.to show the drop down content from the button */
+  display: block !important;
+  transition: 2000ms ease-in-out, opacity 2500ms ease-in-out;
+}
+
+@media only screen and (max-width: 801px) {
+
+    .mobile-dev {
+      display: inline-block !important;
+    }
+
+    .dropdown-content {
+      top:39px;
+      width: 99vw !important;
+      margin: 0px 0px 0px -15px;
+      font-size: 21px;
+      padding: 21px;
+    }
+
+
+    .dropdown-content a {
+      padding: 11px 0px;
+      font-size: 15px;
+    }   
+
+    .navbar { /* , .navbar-right. some of navbar-rigth content will be visible--cart*/
+       display: none; 
+    }
+    
+    .drop:hover .dropdown-content {
+        display: none;
+    } /****/
+
+    .myHeader {
+        z-index: 1;
+        position: relative;/** only for desktop view / changed for mobile **/
+        height: 53px;
+        padding: 10px;
+        margin: 0px;
+        background-color:rgba(255,255,255,0.9);
+       /* box-shadow:1 ;
+        justify-content: space-between;*/
+    }
+
+    .sticky {
+        position: fixed !important;
+        animation-name: exampleMobile;
+    }
+
+    .sticky, .myHeader {
+        border-bottom: 1px solid #e8e8e8;
+    }
+
+    .myHeader .navbar, .myHeader .navbar-right, .sticky .navbar, .sticky .navbar-right { 
+        top: 10%; 
+    }/* reposition nav when sticky header appears */
+
+    .myHeader img, .sticky img {
+        width: 33px; height: 33px;
+    } 
+
+    .myHeader .header-cols, .myHeader .logo{ /* for the logog container -- to prevent from growing bigger than the 50x50 pic*/
+        height: 33px;
+    }
+
+    /*    Safari 4.0 - 8.0 */
+    @-webkit-keyframes exampleMobile {
+      from {background-color: transparent; top:-53px;}
+      to {background-color:rgba(255,255,255,0.9) !important; top:0px;}
+    }
+
+    /* Standard syntax */
+    @keyframes exampleMobile {
+      from {background-color: transparent; top:-53px;}
+      to {background-color:rgba(255,255,255,0.9) !important; top:0px;}
+    }
+    
+    .footer-info article {
+        margin-right:0px;
+    }
+
+} 
+
+@media only screen and (max-width: 735px) {
+
+  .dropdown-content {
+      height: 900px;/*added 11/21/2019 */
+      overflow:auto; /*added 11/21/2019 */
+      -webkit-overflow-scrolling:touch; /*added 11/21/2019 */
+  } 
+  
+  /*Three selector lines below affect the styling of the preview cart small box feature located on the menu bar.   */
+  .previewCartItem-content {padding-right:0px !important;}
+  .previewCartAction-checkout, .previewCartAction-viewCart {
+      width: 100% !important; padding-left: 0px !important; padding-right: 0px !important;  float: none !important;
+  }
+  
+  .previewCartItem-price  {
+      padding-left: 0.75rem;
+  }
+  
+                /*CSS FOR COMMING SOON MODAL BELOW */
+                .modalPops {
+                  width: 280px; /*300px prev*/
+                  height: 380px; /*420px previously*/
+                  background-image: url('https://eddoj.github.io/images/bottlesCBD-280x380.jpg');
+                }
+            
+                .modalContentLeft {
+                  height: 380px; /*420px previously*/
+                  background-color: rgba(230, 230, 230, .8);
+                  border-radius: 30px;
+                }   
+                  
+                /*remove it if not centered text on mobile moedal*/
+                .modalContentLeft h2 {
+                  font-size: 30px; /*remove once consolidated*/
+                  text-align: center;
+                }
+            
+                .modalContentLeft form {
+                  width: 95%;
+                } 
+            
+                /*remove txt:center; if not centered text on mobile moedal*/
+                .modalContentLeft p {
+                  color: #000; text-align: center;
+                }
+            
+                .modalContentRight {
+                  display: none;
+                }
+            
+                /*remove it if not centered text on mobile moedal*/
+                .shareIt {
+                  float: none; position: relative; left:27%;/* 30% prev*/
+                }
+                /*END OF CSS FOR COMMING SOON MODAL */
+ 
+}
+/* END OF HEADER */
+            
+            /* HOME PAGE AND SECTIONS */             
+            .hustlenflo_intro {
+                text-align:center; width:60%; margin:0px auto; padding-bottom:75px;/*50*/
+            } 
+            
+            .hustlenflo_intro p, .blogWrapper p {
+                letter-spacing:1.7px; line-height:1.7em; font-size:16px;
+            }
+            
+            .margin-to-margin-section, .reg-section {
+                max-height:620px; margin:0px 0px 75px 0px; 
+            } 
+            
+            .shotNServices {
+                height: 620px;
+            }
+            
+            .leftPnSDiv:hover, .rightPnSDiv:hover {
+                opacity: 0.9;
+                background-color: #fafafa;
+            }
+            
+            .margin-to-margin-section {
+                position:relative;
+            }
+            
+            .margin-to-margin-section img {
+                width:100%; max-height:620px;
+            }
+            
+            .content-for-mtm-section, .reg-section-content {
+                display:flex; flex-direction:column; flex-wrap:wrap; justify-content:center; text-align:center;
+            }
+            
+            .content-for-mtm-section {
+                position:absolute; top: 15%;
+            }
+            
+            h1, h2 { font-size: 34px;}
+            
+            .hustlenflo_intro h1, .blogWrapper h2, .content-for-mtm-section h2, .reg-section-content h2 {
+                font-size:40px; 
+            } 
+            
+            .content-for-mtm-section h2, .reg-section-content h2 {
+                font-size:50px; font-weight:400px;  line-height:1.3em;
+            }/*font-family:serif !important;*/
+            
+            .content-for-mtm-section p, .reg-section-content p {
+                letter-spacing:1.7px; line-height:1.7em; font-size:16px;
+            }
+            
+            .content-for-mtm-section p > button, .reg-section-content p > a > button {
+                width:180px;  background-color:black; color:white; padding:8px 28px;
+            }
+            
+            .content-for-mtm-section p > button:hover, .reg-section-content p > a > button:hover {
+                background-color: transparent;/*rgb(98, 45, 57) opacity: 0.9;*/
+                font-weight: bold;
+                color:black;
+                border:2px solid black;
+            }
+            
+            
+            /*subscriber footer css*/
+            .removeBMargin {margin-bottom:0px;}
+            .removeBPadding {padding-bottom: 0px !important;}
+
+            .subscribeFeatureRight img {
+                width:100%; height: 100%;
+            }
+
+            .subscribeFeatureLeft {
+                display:flex; flex-wrap:wrap; flex-direction:column; text-align: left; padding: 8px 6% ;
+            }
+
+            .subscribeFeatureLeft  p {
+                color: #5c5c5c; padding-bottom: 1px; font-size: 30px; /*margin: 10px 0px 10px 0px;*/
+            }
+
+            .subscribeFeatureLeft h3 {
+                font-size: 33px; padding-bottom: 12%; font-weight: bold;
+            }
+
+            .subLeftSectionUpper {
+                width: 100%; border-radius: 50px; border: 1px solid black; margin: 0px auto 50px auto; padding: 15px;
+                display:flex;
+            } 
+
+            .subLeftSectionUpper input {
+                margin:0px; width: 80%; border: 0px; 
+            }
+
+            .subLeftSectionUpper input > button {
+                margin:0px; width: 19%; border: 0px; background-color:transparent; padding: 5px; float: right;
+            }
+
+            .subLeftSectionLower {
+                display:flex; flex-wrap:wrap; width:100%;
+            }
+
+            .subSocialMedia {
+                display: flex; flex-wrap: nowrap;
+            }
+
+            .subHashTag {
+                font-size: 20px; text-align: right; padding: 10px 0px;
+            }
+            
+            /* Blog Section / Home Page / Blog Page 12.18.2019*/ 
+            .blogWrapper {
+                text-align: center; background-color: #fafafa;
+            }
+
+            .blogWrapper h2 {
+                padding-top: 45px !important; margin-top:0px; margin-bottom: 10px;
+            }
+
+            .categoryBlog {
+                background-color: transparent;
+                display: flex; flex-wrap: now-wrap; 
+                justify-content: space-around;
+                height: auto;
+                padding: 15px 0px;
+                margin: 0px;
+            }
+
+            .categoryBlog div {
+                max-width: 400px !important;
+                /*min-width: 250px;*/
+                width: 32%; 
+                margin: 10px 0px; 
+                /*min-height: 180px;*/
+                height: 26vw; /*370px*/
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: white;
+                margin: 20px auto;
+                box-shadow: 5px 5px 15px rgba(0, 0, 0, .3); /* 5px 5px 5px, 0.2 */
+            }
+
+            .categoryBlog a > img {
+                width:80%; height:25vw; 
+            }
+
+            .categoryBlog div:hover {
+                opacity: 0.9;
+                background-color: #FBFFFE;
+            } 
+
+            .blogsPanel {
+                display: flex;
+                flex-direction: column;
+
+            }
+
+            .blogsPanel div > p {
+               padding:20px 0px 20px 0px;
+               margin: 0px;
+                 
+            } 
+
+            .showPanelEffect { /*.blogsPanel a > div without anchor tag--relies on h3 for linkage*/
+                position:relative; width:80%; margin: 0px auto;
+                box-shadow: 5px 5px 5px rgba(0, 0, 0, .2); 
+            }
+            
+            /* .blogsPanel a > div { //if anchor tag can be used, but remove the .showPanelEffect atop//
+                position:relative; width:80%; margin: 0px auto;
+                box-shadow: 5px 5px 5px rgba(0, 0, 0, .2); 
+            }    */ 
+
+            .blogsPanel img {
+                width:100%;
+                margin: 0px auto;
+                max-height: 300px; /*400px previously*/
+            }
+
+            .hoverBlogPanelEffect {
+                display: flex; flex-direction:column; justify-content: center; align-items: center; position:absolute; top:0px; background-color:#fafafa; opacity: 0.7; width: 100%; max-height: 300px; /*400px previously*/ height: 100vw; margin: 0px; padding: 0px; font-size:34px; color: green;
+            }
+
+            .showPanelEffect div {
+                visibility:hidden;
+            }
+
+            .showPanelEffect:hover div {
+                visibility:visible;
+            }
+
+            .blogPanelDescription {
+                position: relative; top:-20px; width:80%; margin:15px auto; padding: 20px; background-color: #fafafa; border:1px solid #cccccc; box-shadow: 5px 5px 5px rgba(0, 0, 0, .2);
+            }
+
+            .blogPanelDescription spam {
+                color: #868686;
+            }
+
+            .blogPanelDescription h3 {
+                line-height:2em; display: inline; font-size:16px; font-weight: 500;
+            }/*change font size when hero is applied*/
+
+            .blogPanelDescription h3 > a {
+                padding-bottom:5px; text-decoration: none; border-bottom: 2px solid green;
+            }
+
+            .blogPanelDescription div {
+                width:100%; text-align: right; font-weight: bold; padding: 0px 5% 0px 0px; font-style:italic;
+            }
+
+            /*BASE LAYOUT CSS*/
+            @font-face {
+               font-family: "Hero";
+               src: url("{{cdn 'webdav:/hero/Hero-Regular.ttf'}}");
+               src: url("{{cdn 'webdav:/hero/Hero-Regular.eot'}}");  /* IE9 Compat Modes */
+               src: url("{{cdn 'webdav:/hero/Hero-Regular.eot?#iefix'}}"), /* IE6-IE8 */
+                   url("{{cdn 'webdav:/hero/Hero-Regular.woff2'}}"), /* Super Modern Browsers */
+                   url("{{cdn 'webdav:/hero/Hero-Regular.woff'}}"),  /* Pretty Modern Browsers */
+                   url("{{cdn 'webdav:/hero/Hero-Regular.svg#svgFontName'}}"); /* Legacy iOS */
+           }
+        
+            .body {
+                width: 100%; padding: 0px !important; margin: 0 auto !important;  max-width: 1366px;
+            }
+            
+            h2, h3, h4, h5, h6 {
+                font-family: "Hero" !important;
+            }
+            
+            .footer {
+                padding:80px 15px !important;
+                background-color: #17172c !important;
+                max-width: 1366px; margin: 0px auto;
+                font-family: "Quicksand", Sans-Serif;
+                
+            } /*   footer - rgb(166, 166, 166) !important, h5 - rgb(204, 204, 204),  rgb(117, 117, 117) !important */
+            
+            .footer-info-col {
+                color: white !important;
+            }
+            
+            .footer h5 {
+                color: white !important;
+                font-size: 17px;
+            }
+            
+            .powered-by, .footer, .footer p, .footer a {
+                color: white !important;
+                font-size: 16px !important;
+            }            
+            
+            .footer-info article {
+                 margin-right:3%;
+            }
+            
+            .notAtHome {
+                position: relative !important;
+            }
+            /* END OF BASE LAYOUT CSS */
+
+            /* CATEGORY PAGE CSS */
+            /* only the next two selectors modify stencil theme padding for the original categoy page */
+            .container {
+                padding: 0px !important;
+                margin: 0px !important;
+                max-width: 1366px !important;
+            }
+            
+            .productsSectionPage, .footer .container {
+                padding: 0 1.5rem !important;
+            }
+
+            /* Products Category Page */
+            .productCategory, .howItWorks {
+                text-align: left;
+                padding: 5% 7.5%;/*2% instead of 0 previusly */
+            }
+
+            .howItWorks {
+                position: relative;
+            }
+
+            /* CSS for green numbered step images to the left of the How It Works description */
+            .howItWorks div {
+                position: absolute; z-index:-1; top: 10%; left:-0%;
+            }
+
+            .howItWorks div > img {
+                width: 50%;
+            }
+            /* End of css for green numbered step images*/
+
+            .productCategory {
+                justify-content: flex-start;
+            }
+
+            .howItWorksTitle {
+                position: absolute;
+            }
+
+            .howItWorks, .productCategoryTitle, .howItWorksTitle {
+                justify-content: center;
+            }
+
+            .howItWorks > img {
+                /*ATM CONTINUE add styles for mobile */
+            }
+
+            .productCategoryTitle h1 {
+                font-size:34px; margin: 0px 0px 25px 0px; 
+                font-weight: 100; letter-spacing: 1.7px; 
+                padding:0px;
+            }
+
+            .howItWorksTitle h1 {
+                margin:50px 0px; text-align:center !important;
+            }
+
+            .productCategory p, .howItWorks p {
+                padding: 0px; margin:0px 0px 25px 0px;
+            }
+
+            .productCategory h3, .howItWorks h3 {
+                
+                font-weight: 100;
+                font-size: 34px;
+                margin: 0 0 24px 0;
+                line-height: 37px;
+            } 
+
+            .half-div {
+                background-color:#f6f5f2; height: 210px; margin: 0px; padding: 0px;
+            }
+
+            .normalizeIMG, .normalizeIMGCenter {
+                position: relative;
+                padding: 0; /* 2% 0 */
+
+            }
+
+            .normalizeIMG {
+                justify-content: flex-start;/**/
+            }
+
+            .normalizeIMGCenter {
+                text-align: center;
+            }
+
+            .normalizeIMG img {
+                width: 100%;
+                max-height: 100vw;
+                /*padding-bottom: 50%;*/
+
+            }
+
+            .normalizeIMGCenter img {
+                width: 60%;
+            }
+            /* END OF CATEFORY PAFGE CSS */
+
+            /* ABOUT US PAGE */
+            /* Page CSS -- for about us, meta blog, etc. */
+            /*Mosification css for about us page -- consolidate before deploymemt*/
+            .aboutUs, .shareIconsSM {
+                display: flex;
+                justify-content: center;
+            }
+
+            .aboutUs h1 {
+                font-size:34px;
+                font-weight: 100; letter-spacing: 1.7px; 
+                padding:0px;
+            }
+
+            .normalizeVideo {
+              justify-content: center;
+              padding: 5% 0%;
+            }
+            
+            .page {
+                padding: 0px;
+                margin: 0px;
+            }
+            .page-content {
+                max-width: 1366px;
+                width:95% !important;
+                padding:0px !important;
+            }
+            /* /End of Page CSS -- for about us, meta blog, etc. */
+            
+            /* ACTUAL BLOG POST PAGE */
+            .page {
+                max-width: 1366px !important;
+                margin: 0px !important;
+            }
+
+            /* .blog-header h1, .blog-header p {
+                text-align:left;
+            } 
+            
+            .blog-header h1 {
+                margin-left:0px;
+            } */
+        
+            .blog-header h1, h1, h2 {
+                font-size: 34px !important;
+            }
+        
+            p {
+                letter-spacing:1.7px; line-height:1.7em; font-size:16px;
+            }
+        
+            .blog-post-body {
+                width:95%;
+            
+            }
+            /* END OF ACTUAL BLOG POST BODY */
+
+            /*media queries below*/
+            @media only screen and (max-width: 850px) {
+                
+                .subHashTag, .subSocialMedia {
+                    width:100%;
+                    text-align: left;
+                }
+            }
+        
+            @media only screen and (max-width: 785px) {
+                .hustlenflo_intro {
+                    padding-bottom:50px;
+                }
+                
+                .hero {
+                    padding-bottom:50px;
+                }
+            
+                .margin-to-margin-section img, .reg-section img {
+                    min-height:334px;
+                } 
+                
+                .content-for-mtm-section {
+                    top: 6%;
+                }
+                
+                .reg-section img {
+                    max-height: 334px !important;/* keep fixing the mobile image issue */
+                }
+                
+                .shotNServices {
+                    height: 430px;
+                }
+                
+                .hustlenflo_intro h1, .blogWrapper h2, .content-for-mtm-section h2, .reg-section-content h2 {
+                    font-size:35px; 
+                }        
+                            
+                    /*Subscriber footer*/
+                .subscribeFeatureLeft h3 {
+                    font-size: 30px; padding-bottom: 0px; margin-bottom: 32px;
+                }
+
+                .subscribeFeatureLeft  p {
+                    padding-bottom: 0px; margin-bottom: 0px;
+                }
+
+                .subLeftSectionUpper {
+                    margin: 0px auto 32px auto; padding: 10px;
+                } 
+
+                /* Products Category Page */
+                .normalizeIMG {
+                    padding: 0% 0% 5% 0% !important;
+                }
+
+                .productCategory, .howItWorks {
+                    padding: 5% 7.5% !important;
+                }
+                
+                /* Blog Section / Home Page / Blog Page */
+                .categoryBlog div {
+                    width: 44% !important;
+                    height: 38vw !important;
+                }
+
+                .categoryBlog a > img {
+                    height: 37vw !important;
+                }                
+                
+            }
+            
+            @media only screen and (max-width: 735px) {
+                
+                .hustlenflo_intro {
+                    width:75%;
+                }  
+
+                h1, h2, .content-for-mtm-section h2, .reg-section-content h2 {
+                    font-size:30px; 
+                } 
+                
+                h2 {
+                    font-weight:bold;
+                }
+                
+                h3 {
+                    font-size: 25px;
+                }
+  
+                .col-6 {
+                    width: 100%;
+                    padding-bottom: 20px;/* keep fixing the mobile image issue */
+                }   
+                
+                .shotNServices {
+                    min-height: 800px !important;
+                }
+                
+                /*Subscriber footer*/
+                .subscribeFeatureLeft {
+                    text-align: center;
+                }
+                
+                .subscribeFeatureLeft  p {
+                    padding-bottom: 0px; margin-bottom: 0px;
+                }  
+                
+                .subLeftSectionUpper {
+                    width: 70%;
+                } 
+
+                .subSocialMedia {
+                    justify-content: center;
+                }
+
+                .subHashTag {
+                    padding-top:0px !important;
+                    text-align: center;
+                }
+                
+                /* Products Category Page */
+                .shiftIMGPosition {
+
+                    flex-direction: column-reverse;
+                }
+                /*.shiftIMGPosition :nth-child(1) { order: 2; }
+                .shiftIMGPosition :nth-child(2) { order: 1; }*/
+
+                .half-div {
+                    height: 180px !important;
+                }
+
+            } 
+
+            /*Added 02/03/2020 to play around and make blog content dynamic*/
+            .hide {
+                display: none;
+            }
+            
+            .show {
+                display: block;
+            }
+            
+        </style>

@@ -21,9 +21,5 @@ subscription-form :	templates/components/common/
 
 NOTE: For the "paste_on_ ..." files, just create a regular webpage with the appropriate title on BC, use the WYSIWYG html editor and pase the content inside each "paste_on_ ..."  file as directed in its instructions--if there are any.
 
-
-
-No worries Jamie! Below is the link, and the code to access it.
-
-link: https://adventstore.mybigcommerce.com/?ctk=082f6e3f-e02b-446f-a104-2df9fb0e0f1a
-code: s8udsu8us1
+Also, make sure to update the links that point to the store on the following pages: blog.html, category.html, header.html, and home.html
+For example, https://otkstore.mybigcommerce.com/able-brewing-system/ should be changed to to the new sotre link.

@@ -2,19 +2,6 @@ Note: Paste the html code within the if statemtnes (from div to /div) only. The 
 
 
     {{#if page.title '==' 'hustle n flo - Our Story'}}
-        
-        <style>
-        
-            .page {
-                padding: 0px;
-                margin: 0px;
-            }
-            .page-content {
-                max-width: 1366px;
-                width:95% !important;
-                padding:0px !important;
-            }
-        </style>
 
         <div class="row removeBMargin" >
     
@@ -48,9 +35,7 @@ Note: Paste the html code within the if statemtnes (from div to /div) only. The 
             </div>
             
         </div>
-        <div class="row shareIconsSM">
-            {{>components/common/share}}
-        </div>
+
     {{else}}
             <p>{{{page.content}}}</p>
     {{/if}}

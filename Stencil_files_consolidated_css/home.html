@@ -1,0 +1,142 @@
+---
+products:
+    new:
+        limit: {{theme_settings.homepage_new_products_count}}
+    featured:
+        limit: {{theme_settings.homepage_featured_products_count}}
+    top_sellers:
+        limit: {{theme_settings.homepage_top_products_count}}
+carousel: {{theme_settings.homepage_show_carousel}}
+blog:
+    recent_posts:
+        limit: {{theme_settings.homepage_blog_posts_count}}
+---
+{{#partial "hero"}}
+    {{{region name="home_below_menu"}}}
+    {{#if carousel}}
+        {{> components/carousel arrows=theme_settings.homepage_show_carousel_arrows}}
+        
+        
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        
+    <div id='magic' class="hustlenflo_intro" >
+        <h1>hustle + flo wellness</h1>
+        <p > 
+        
+           hustle + flo is on a mission to revitalize urban living through the simultaneous use of natural healing products and the exploration of dynamic learning practices to promote restoration designed to empower daily living. <br><br>
+           
+           Social responsibility, sustainability and inclusivity are pillars of our brand.  This is why for every purchase you make we will contribute 1% of our proceeds to organizations such as One Tree Planted and The Last Prisoner Project.  
+        
+        </p>
+        
+    </div>
+    
+    <div class="col-12 blogWrapper">
+        <h2>Vibes</h2><!-- margin-top:0; margin-bottom:10px; before moving blog inside vibes div -->
+    <p>
+        Blog description here ... 
+    </p>
+
+    <div class="row categoryBlog">
+      <div class="item" data-aos='fade-up' data-aos-delay="0">
+          <a href="https://otkstore.mybigcommerce.com/blog/"><img src="https://eddoj.github.io/images/meta-vibes.png" alt="Blog Image Category 1"/></a>
+      </div>
+      <div class="item" data-aos='fade-up' data-aos-delay="200">
+          <a href="https://otkstore.mybigcommerce.com/blog/"><img src="https://eddoj.github.io/images/electric-vibes.png" alt="Blog Image Category 1"/></a>
+      </div>
+      <div class="item" data-aos='fade-up' data-aos-delay="400">
+          <a href="https://otkstore.mybigcommerce.com/blog/"><img src="https://eddoj.github.io/images/chill-vibes.png" alt="Blog Image Category 1"/></a>
+      </div>
+      <div class="item" data-aos='fade-up' data-aos-delay="0"><a href="https://otkstore.mybigcommerce.com/blog/"><img src="https://eddoj.github.io/images/hustle-vibes.png" alt="Blog Image Category 1"/></a></div>
+      <div class="item" data-aos='fade-up' data-aos-delay="200"> 
+          <a href="https://otkstore.mybigcommerce.com/blog/"><img src="https://eddoj.github.io/images/pooch-vibes.png" alt="Blog Image Category 1"/></a>
+      </div>
+      <div class="item" data-aos='fade-up' data-aos-delay="400">
+          <a href="https://otkstore.mybigcommerce.com/blog/"><img src="https://eddoj.github.io/images/all-the-vibes.png" alt="Blog Image Category 1"/></a>
+      </div><!-- https://otkstore.mybigcommerce.com/blog/ -->
+    </div>
+    </div>
+    
+    <div class="row reg-section shotNServices" style="margin:0px !important;" >
+        <div  class="col-6 reg-section-content leftPnSDiv" data-aos="fade-right" data-aos-delay="200">
+                <h2>Wellness<br/>Product Line</h2>
+                <p>Comming Soon!</p>
+                <p>
+                    <a href="https://otkstore.mybigcommerce.com/shop-all/" target="_self" alt="Buy Products"><button>Browse All!</button></a>
+                </p>
+        </div>
+        <div  class="col-6 reg-section-content rightPnSDiv" data-aos="fade-left" data-aos-delay="200">
+                <h2>Curated<br/>Experience</h2>
+                <p>Comming Soon!</p>
+                <p>
+                    <a href="javascript:openModal()" target="_self" alt="Curated Experience"><button > Browse All!!</button></a>
+                </p>
+        </div>
+        
+    </div>
+    
+    <div class="row removeBMargin" data-aos="fade-right" data-aos-delay="200">
+        <div  class="col-6 subscribeFeatureLeft" >
+
+                <p >Nice to meet you!</p>
+
+                <h3 >Emails engineered to <br/>make you better.</h3>
+                
+                <div class="subLeftSectionUpper">
+                  <input type="text" value="Enter Email Address" />
+                  <button >Commit</button>
+                </div>
+
+                <div class="subLeftSectionLower"  >
+                <div class="col-6 subSocialMedia" >
+                  <a href="https://www.instagram.com/hustlenflo.co/" target="_blank"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a> &emsp;<i class="fa fa-youtube-play fa-3x" aria-hidden="true"></i>&emsp;<i class="fa fa-facebook-official fa-3x" aria-hidden="true"></i>
+                </div>
+                <div class="col-6 subHashTag" >#ownyourhustle</div>
+                </div>
+        </div>
+        <div class="col-6 subscribeFeatureRight removeBPadding">
+            <img src="https://eddoj.github.io/images/sample_email_sub_img.jpg" alt="Placeholder img"/> <!-- elment 485x620 actial omage used 664 x 848 -->
+        </div>
+        
+    </div>
+        
+    {{/if}}
+    {{{region name="home_below_carousel"}}}
+{{/partial}}
+
+{{#partial "page"}}
+
+    {{#each shipping_messages}}
+        {{> components/common/alert/alert-info message}}
+    {{/each}}
+<div class="main full">
+    <!-- {{#if products.featured}}
+        {{> components/products/featured products=products.featured columns=theme_settings.homepage_featured_products_column_count}}
+    {{/if}}
+    {{{region name="home_below_featured_products"}}}
+
+    {{#if products.top_sellers}}
+        {{> components/products/top products=products.top_sellers columns=theme_settings.homepage_top_products_column_count}}
+    {{/if}}
+    {{{region name="home_below_top_products"}}}
+
+    {{#if products.new}}
+        {{> components/products/new products=products.new columns=theme_settings.homepage_new_products_column_count}}
+    {{/if}} -->
+    {{{region name="home_below_new_products"}}}
+</div>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script type="text/javascript"> 
+//https://github.com/michalsnik/aos
+//https://codepen.io/michalsnik/pen/WxNdvq
+AOS.init({
+    offset:200,
+    duration:1000,
+    easing:'ease-in-out',
+    mirror:true,
+    once:true
+});
+</script>
+{{/partial}}
+{{> layout/base}}
